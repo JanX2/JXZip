@@ -565,9 +565,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3D62A587148E7DA600D9B13A /* libzip */ = {
+		3D62A587148E7DA600D9B13A /* libzip.dylib */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3D62A5DB148E7DDE00D9B13A /* Build configuration list for PBXNativeTarget "libzip" */;
+			buildConfigurationList = 3D62A5DB148E7DDE00D9B13A /* Build configuration list for PBXNativeTarget "libzip.dylib" */;
 			buildPhases = (
 				3D62A584148E7DA600D9B13A /* Headers */,
 				3D62A585148E7DA600D9B13A /* Sources */,
@@ -577,7 +577,7 @@
 			);
 			dependencies = (
 			);
-			name = libzip;
+			name = libzip.dylib;
 			productName = libzip;
 			productReference = 3D62A588148E7DA600D9B13A /* libzip.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
@@ -673,7 +673,7 @@
 			projectRoot = "";
 			targets = (
 				8DC2EF4F0486A6940098B216 /* libzip.framework */,
-				3D62A587148E7DA600D9B13A /* libzip */,
+				3D62A587148E7DA600D9B13A /* libzip.dylib */,
 				3D62A78A148EA01500D9B13A /* zipcmp */,
 				3D62A7D0148EA1C300D9B13A /* zipmerge */,
 				3D62A7EC148EA1ED00D9B13A /* ziptorrent */,
@@ -1140,7 +1140,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3D62A5DB148E7DDE00D9B13A /* Build configuration list for PBXNativeTarget "libzip" */ = {
+		3D62A5DB148E7DDE00D9B13A /* Build configuration list for PBXNativeTarget "libzip.dylib" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3D62A589148E7DA700D9B13A /* Debug */,
