@@ -6,6 +6,22 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		3D62A80C148EA23000D9B13A /* Build all CLI tools */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 3D62A81E148EA24300D9B13A /* Build configuration list for PBXAggregateTarget "Build all CLI tools" */;
+			buildPhases = (
+			);
+			dependencies = (
+				3D62A815148EA23600D9B13A /* PBXTargetDependency */,
+				3D62A813148EA23600D9B13A /* PBXTargetDependency */,
+				3D62A811148EA23600D9B13A /* PBXTargetDependency */,
+			);
+			name = "Build all CLI tools";
+			productName = "Build all CLI tools";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		3D62A520148E7CB100D9B13A /* mkstemp.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D62A4CF148E7CB100D9B13A /* mkstemp.c */; };
 		3D62A521148E7CB100D9B13A /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D62A4D0148E7CB100D9B13A /* zip.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -160,6 +176,12 @@
 		3D62A796148EA04700D9B13A /* zipcmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D62A785148E9FBB00D9B13A /* zipcmp.c */; };
 		3D62A7AD148EA0DE00D9B13A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D62A608148E805800D9B13A /* libz.dylib */; };
 		3D62A7B1148EA0F400D9B13A /* libzip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* libzip.framework */; };
+		3D62A7D6148EA1C300D9B13A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D62A608148E805800D9B13A /* libz.dylib */; };
+		3D62A7D7148EA1C300D9B13A /* libzip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* libzip.framework */; };
+		3D62A7E6148EA1D900D9B13A /* zipmerge.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D62A786148E9FBB00D9B13A /* zipmerge.c */; };
+		3D62A7F2148EA1ED00D9B13A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D62A608148E805800D9B13A /* libz.dylib */; };
+		3D62A7F3148EA1ED00D9B13A /* libzip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* libzip.framework */; };
+		3D62A808148EA21B00D9B13A /* ziptorrent.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D62A787148E9FBB00D9B13A /* ziptorrent.c */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
@@ -170,6 +192,41 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* libzip.framework */;
 			remoteInfo = libzip.framework;
+		};
+		3D62A7D2148EA1C300D9B13A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = libzip.framework;
+		};
+		3D62A7EE148EA1ED00D9B13A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = libzip.framework;
+		};
+		3D62A810148EA23600D9B13A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D62A7EC148EA1ED00D9B13A /* ziptorrent */;
+			remoteInfo = ziptorrent;
+		};
+		3D62A812148EA23600D9B13A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D62A7D0148EA1C300D9B13A /* zipmerge */;
+			remoteInfo = zipmerge;
+		};
+		3D62A814148EA23600D9B13A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D62A78A148EA01500D9B13A /* zipcmp */;
+			remoteInfo = zipcmp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -264,6 +321,8 @@
 		3D62A786148E9FBB00D9B13A /* zipmerge.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zipmerge.c; sourceTree = "<group>"; };
 		3D62A787148E9FBB00D9B13A /* ziptorrent.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ziptorrent.c; sourceTree = "<group>"; };
 		3D62A78B148EA01500D9B13A /* zipcmp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = zipcmp; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D62A7DB148EA1C300D9B13A /* zipmerge */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = zipmerge; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D62A7F7148EA1ED00D9B13A /* ziptorrent */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ziptorrent; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* libzip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = libzip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -287,6 +346,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3D62A7D5148EA1C300D9B13A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D62A7D6148EA1C300D9B13A /* libz.dylib in Frameworks */,
+				3D62A7D7148EA1C300D9B13A /* libzip.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D62A7F1148EA1ED00D9B13A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D62A7F2148EA1ED00D9B13A /* libz.dylib in Frameworks */,
+				3D62A7F3148EA1ED00D9B13A /* libzip.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DC2EF560486A6940098B216 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -304,6 +381,8 @@
 				8DC2EF5B0486A6940098B216 /* libzip.framework */,
 				3D62A588148E7DA600D9B13A /* libzip.dylib */,
 				3D62A78B148EA01500D9B13A /* zipcmp */,
+				3D62A7DB148EA1C300D9B13A /* zipmerge */,
+				3D62A7F7148EA1ED00D9B13A /* ziptorrent */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -520,6 +599,40 @@
 			productReference = 3D62A78B148EA01500D9B13A /* zipcmp */;
 			productType = "com.apple.product-type.tool";
 		};
+		3D62A7D0148EA1C300D9B13A /* zipmerge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D62A7D8148EA1C300D9B13A /* Build configuration list for PBXNativeTarget "zipmerge" */;
+			buildPhases = (
+				3D62A7D3148EA1C300D9B13A /* Sources */,
+				3D62A7D5148EA1C300D9B13A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D62A7D1148EA1C300D9B13A /* PBXTargetDependency */,
+			);
+			name = zipmerge;
+			productName = zipcmp;
+			productReference = 3D62A7DB148EA1C300D9B13A /* zipmerge */;
+			productType = "com.apple.product-type.tool";
+		};
+		3D62A7EC148EA1ED00D9B13A /* ziptorrent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D62A7F4148EA1ED00D9B13A /* Build configuration list for PBXNativeTarget "ziptorrent" */;
+			buildPhases = (
+				3D62A7EF148EA1ED00D9B13A /* Sources */,
+				3D62A7F1148EA1ED00D9B13A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D62A7ED148EA1ED00D9B13A /* PBXTargetDependency */,
+			);
+			name = ziptorrent;
+			productName = zipcmp;
+			productReference = 3D62A7F7148EA1ED00D9B13A /* ziptorrent */;
+			productType = "com.apple.product-type.tool";
+		};
 		8DC2EF4F0486A6940098B216 /* libzip.framework */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "libzip.framework" */;
@@ -562,6 +675,9 @@
 				8DC2EF4F0486A6940098B216 /* libzip.framework */,
 				3D62A587148E7DA600D9B13A /* libzip */,
 				3D62A78A148EA01500D9B13A /* zipcmp */,
+				3D62A7D0148EA1C300D9B13A /* zipmerge */,
+				3D62A7EC148EA1ED00D9B13A /* ziptorrent */,
+				3D62A80C148EA23000D9B13A /* Build all CLI tools */,
 			);
 		};
 /* End PBXProject section */
@@ -666,6 +782,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3D62A7D3148EA1C300D9B13A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D62A7E6148EA1D900D9B13A /* zipmerge.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D62A7EF148EA1ED00D9B13A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D62A808148EA21B00D9B13A /* ziptorrent.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DC2EF540486A6940098B216 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -753,6 +885,31 @@
 			isa = PBXTargetDependency;
 			target = 8DC2EF4F0486A6940098B216 /* libzip.framework */;
 			targetProxy = 3D62A794148EA03D00D9B13A /* PBXContainerItemProxy */;
+		};
+		3D62A7D1148EA1C300D9B13A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* libzip.framework */;
+			targetProxy = 3D62A7D2148EA1C300D9B13A /* PBXContainerItemProxy */;
+		};
+		3D62A7ED148EA1ED00D9B13A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* libzip.framework */;
+			targetProxy = 3D62A7EE148EA1ED00D9B13A /* PBXContainerItemProxy */;
+		};
+		3D62A811148EA23600D9B13A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D62A7EC148EA1ED00D9B13A /* ziptorrent */;
+			targetProxy = 3D62A810148EA23600D9B13A /* PBXContainerItemProxy */;
+		};
+		3D62A813148EA23600D9B13A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D62A7D0148EA1C300D9B13A /* zipmerge */;
+			targetProxy = 3D62A812148EA23600D9B13A /* PBXContainerItemProxy */;
+		};
+		3D62A815148EA23600D9B13A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D62A78A148EA01500D9B13A /* zipcmp */;
+			targetProxy = 3D62A814148EA23600D9B13A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -881,6 +1038,87 @@
 			};
 			name = Release;
 		};
+		3D62A7D9148EA1C300D9B13A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/bin;
+				PREBINDING = NO;
+				PRODUCT_NAME = zipmerge;
+			};
+			name = Debug;
+		};
+		3D62A7DA148EA1C300D9B13A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				PREBINDING = NO;
+				PRODUCT_NAME = zipmerge;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		3D62A7F5148EA1ED00D9B13A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/bin;
+				PREBINDING = NO;
+				PRODUCT_NAME = ziptorrent;
+			};
+			name = Debug;
+		};
+		3D62A7F6148EA1ED00D9B13A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				PREBINDING = NO;
+				PRODUCT_NAME = ziptorrent;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		3D62A80E148EA23000D9B13A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Build all CLI tools";
+			};
+			name = Debug;
+		};
+		3D62A80F148EA23000D9B13A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Build all CLI tools";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -916,6 +1154,33 @@
 			buildConfigurations = (
 				3D62A790148EA01600D9B13A /* Debug */,
 				3D62A791148EA01600D9B13A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D62A7D8148EA1C300D9B13A /* Build configuration list for PBXNativeTarget "zipmerge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D62A7D9148EA1C300D9B13A /* Debug */,
+				3D62A7DA148EA1C300D9B13A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D62A7F4148EA1ED00D9B13A /* Build configuration list for PBXNativeTarget "ziptorrent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D62A7F5148EA1ED00D9B13A /* Debug */,
+				3D62A7F6148EA1ED00D9B13A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D62A81E148EA24300D9B13A /* Build configuration list for PBXAggregateTarget "Build all CLI tools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D62A80E148EA23000D9B13A /* Debug */,
+				3D62A80F148EA23000D9B13A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
