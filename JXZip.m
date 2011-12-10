@@ -137,8 +137,8 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 	struct zip_file *zipped_file = zip_fopen_index(za, zipped_file_index, 0);
 	if (zipped_file == NULL) {
 		if (error != NULL) {
-			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Could not open zipped file at index %lu in archive: %s", @"Could not open file at index"), 
-											  (unsigned long)index, zip_strerror(za)];
+			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Could not open zipped file “%@” in archive “%@”: %s", @"Could not open zipped file"), 
+											  zippedFileInfo.name, zipFileURL, zip_strerror(za)];
 			NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
 										 errorDescription, NSLocalizedDescriptionKey, 
 										 nil];
@@ -153,8 +153,8 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 	zip_int64_t n = zip_fread(zipped_file, buf, zipped_file_size);
 	if (n < (zip_int64_t)zipped_file_size) {
 		if (error != NULL) {
-			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Error while reading zipped file at index %lu in archive: %s", @"Error while reading zipped file at index"), 
-											  (unsigned long)index, zip_file_strerror(zipped_file)];
+			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Error while reading zipped file “%@” in archive “%@”: %s", @"Error while reading zipped file"), 
+											  zippedFileInfo.name, zipFileURL, zip_file_strerror(zipped_file)];
 			NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
 										 errorDescription, NSLocalizedDescriptionKey, 
 										 nil];
