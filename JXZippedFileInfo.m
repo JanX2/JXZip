@@ -26,6 +26,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 		
 		struct zip *za = (struct zip *)archive;
 
+		// CHANGEME: Add support for options/flags
 		const char *file_name = [fileName UTF8String]; // autoreleased
 		if (zip_stat(za, file_name, 0, &file_info) < 0) {
 			if (error != NULL) {
