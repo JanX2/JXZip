@@ -12,7 +12,7 @@
 
 NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedFileInfo";
 
-#define kJXCouldNotAccessZippedFileInfo 1003
+#define kJXCouldNotAccessZippedFileInfo 1101
 
 
 @implementation JXZippedFileInfo
