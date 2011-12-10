@@ -24,7 +24,11 @@
 - (JXZip *)initWithURL:(NSURL *)zipFileURL error:(NSError **)error;
 
 - (NSUInteger)fileCount;
+//- (JXZippedFileInfo *)zippedFileInfoForIndex:(NSUInteger)index error:(NSError **)error;
 - (JXZippedFileInfo *)zippedFileInfoForFileName:(NSString *)fileName error:(NSError **)error;
+//- (NSData *)dataForFileAtIndex:(NSUInteger)index error:(NSError **)error;
+- (NSData *)dataForFileName:(NSString *)fileName error:(NSError **)error;
+- (NSData *)dataForZippedFileInfo:(JXZippedFileInfo *)zippedFileInfo error:(NSError **)error;
 
 - (BOOL)saveAndReturnError:(NSError **)error;
 
