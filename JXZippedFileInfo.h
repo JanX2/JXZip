@@ -8,8 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import <libzip/zip.h>
+
 @interface JXZippedFileInfo : NSObject {
-	 struct zip_file_info_t	*zip_file_info_ptr;
+	struct zip_stat	file_info;
 }
 
 #if 0

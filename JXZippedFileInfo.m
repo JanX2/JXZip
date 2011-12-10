@@ -10,10 +10,6 @@
 
 #import "JXZip.h"
 
-struct zip_file_info_t {
-	struct zip_stat	stats;
-};
-
 NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedFileInfo";
 
 #define kJXCouldNotAccessZippedFileInfo 1003
@@ -30,10 +26,8 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 		
 		struct zip *za = (struct zip *)archive;
 
-		zip_file_info_ptr = malloc(sizeof(struct zip_file_info_t));
-
 		const char *content_file_name = [fileName UTF8String]; // autoreleased
-		if (zip_stat(za, content_file_name, 0, &(zip_file_info_ptr->stats)) < 0) {
+		if (zip_stat(za, content_file_name, 0, &file_info) < 0) {
 			if (error != NULL) {
 				NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Could not access file info for “%@” in zipped file: %s", @"Cannot access file info in zipped file"), 
 												  fileName, zip_strerror(za)];
@@ -57,7 +51,6 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 
 - (void)dealloc
 {
-	if (zip_file_info_ptr != NULL)  free(zip_file_info_ptr);
 	
 	[super dealloc];
 }
@@ -74,13 +67,13 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 - (NSUInteger)index;
 {
 	
-	return (NSUInteger)zip_file_info_ptr->stats.index;
+	return (NSUInteger)file_info.index;
 }
 
 - (NSUInteger)size;
 {
 	
-	return (NSUInteger)zip_file_info_ptr->stats.size;
+	return (NSUInteger)file_info.size;
 }
 
 #if 0
