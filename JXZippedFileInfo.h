@@ -14,15 +14,13 @@
 	struct zip_stat	file_info;
 }
 
-#if 0
 - (NSString *)name;				// name of the file
-#endif
 - (NSUInteger)index;			// index within the archive
 - (NSUInteger)size;				// size of the file (uncompressed)
-#if 0
 - (NSUInteger)compressedSize;	// size of the file (compressed)
 - (NSDate *)modificationDate;	// modification date
 - (uint32_t)crc;				// crc of file data
+#if 0
 - (uint16_t)compressionMethod;	// compression method used
 - (uint16_t)encryptionMethod;	// encryption method used
 #endif

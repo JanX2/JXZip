@@ -57,30 +57,52 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 }
 
 
-#if 0
 - (NSString *)name;
 {
-	
-	return ;
+	if (file_info.valid & ZIP_STAT_NAME) {
+		// CHANGEME: We assume the file names are UTF-8.
+		return [NSString stringWithCString:file_info.name encoding:NSUTF8StringEncoding];
+	}
+	else {
+		return nil;
+	}
 }
 
-#endif
 - (NSUInteger)index;
 {
-	
-	return (NSUInteger)file_info.index;
+	if (file_info.valid & ZIP_STAT_INDEX)  return (NSUInteger)file_info.index;
+	else  return NSNotFound;
 }
 
 - (NSUInteger)size;
 {
-	
-	return (NSUInteger)file_info.size;
+	if (file_info.valid & ZIP_STAT_SIZE)  return (NSUInteger)file_info.size;
+	else  return NSNotFound;
+}
+
+- (NSUInteger)compressedSize;
+{
+	if (file_info.valid & ZIP_STAT_COMP_SIZE)  return (NSUInteger)file_info.comp_size;
+	else  return NSNotFound;
+}
+
+- (NSDate *)modificationDate;
+{
+	if (file_info.valid & ZIP_STAT_MTIME) {
+		return [NSDate dateWithTimeIntervalSince1970:file_info.mtime];
+	}
+	else {
+		return nil;
+	}
+}
+
+- (uint32_t)crc;
+{
+	if (file_info.valid & ZIP_STAT_CRC)  return (uint32_t)file_info.crc;
+	else  return NSNotFound;
 }
 
 #if 0
-- (NSUInteger)compressedSize;
-- (NSDate *)modificationDate;
-- (uint32_t)crc;
 - (uint16_t)compressionMethod;
 - (uint16_t)encryptionMethod;
 #endif
