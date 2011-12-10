@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 #import <libzip/zip.h>
+#import "JXZippedFileInfo.h"
 
 
 @interface JXZip : NSObject {
@@ -17,10 +18,14 @@
 }
 
 @property (nonatomic, retain) NSURL *zipFileURL;
+@property (nonatomic, assign) struct zip *za;
+
 + (JXZip *)zipWithURL:(NSURL *)zipFileURL error:(NSError **)error;
 - (JXZip *)initWithURL:(NSURL *)zipFileURL error:(NSError **)error;
 
 - (NSUInteger)fileCount;
+- (JXZippedFileInfo *)zippedFileInfoForFileName:(NSString *)fileName error:(NSError **)error;
+
 - (BOOL)saveAndReturnError:(NSError **)error;
 
 @end

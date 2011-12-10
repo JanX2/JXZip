@@ -13,8 +13,15 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 #define kJXCouldNotOpenZip 1001
 #define kJXCouldNotSaveZip 1002
 
+@interface JXZippedFileInfo (Protected)
++ (JXZippedFileInfo *)zippedFileInfoWithArchive:(void *)archive fileName:(NSString *)fileName error:(NSError **)error;
+- (JXZippedFileInfo *)initFileInfoWithArchive:(void *)archive fileName:(NSString *)fileName error:(NSError **)error;
+@end
 
 @implementation JXZip
+
+@synthesize zipFileURL;
+@synthesize za;
 
 + (JXZip *)zipWithURL:(NSURL *)fileURL error:(NSError **)error;
 {
@@ -79,6 +86,11 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 	return (NSUInteger)zip_get_num_entries(za, ZIP_FL_UNCHANGED);
 }
 
+- (JXZippedFileInfo *)zippedFileInfoForFileName:(NSString *)fileName error:(NSError **)error;
+{
+	return [JXZippedFileInfo zippedFileInfoWithArchive:za fileName:fileName error:error];
+}
+
 
 - (BOOL)saveAndReturnError:(NSError **)error;
 {
@@ -101,5 +113,6 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 		return YES;
 	}
 }
+
 
 @end
