@@ -52,6 +52,8 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 
 - (void)dealloc
 {
+	// We don’t need to free anything here: 
+	// the only non-scalar value, the name string, must not be freed (or modified), and becomes invalid when the archive itself is closed.
 	
 	[super dealloc];
 }
