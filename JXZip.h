@@ -17,8 +17,8 @@
 	struct zip *za;
 }
 
-@property (nonatomic, retain) NSURL *zipFileURL;
-@property (nonatomic, assign) struct zip *za;
+@property (readonly, retain) NSURL *zipFileURL;
+@property (readonly, assign) struct zip *za;
 
 + (JXZip *)zipWithURL:(NSURL *)zipFileURL error:(NSError **)error;
 - (JXZip *)initWithURL:(NSURL *)zipFileURL error:(NSError **)error;

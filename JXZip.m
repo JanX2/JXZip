@@ -23,6 +23,11 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 - (JXZippedFileInfo *)initFileInfoWithArchive:(void *)archive fileName:(NSString *)fileName error:(NSError **)error;
 @end
 
+@interface JXZip ()
+@property (nonatomic, retain) NSURL *zipFileURL;
+@property (nonatomic, assign) struct zip *za;
+@end
+
 @implementation JXZip
 
 @synthesize zipFileURL;
