@@ -187,11 +187,14 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 {
 	if ((fileName == nil) || (data == nil))  return NO;
 	
+	// CHANGEME: Passing the index along might be helpful
+	
 	const char * file_name = [fileName UTF8String];
 	struct zip_source *file_zip_source = zip_source_buffer(za, [data bytes], [data length], 0);
+	zip_int64_t index;
 	
 	if ((file_zip_source == NULL)
-		|| (zip_add(za, file_name, file_zip_source) < 0)
+		|| ((index = zip_add(za, file_name, file_zip_source)) < 0)
 		) { 
 		if (error != NULL) {
 			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Error while adding zipped file “%@” in archive “%@”: %s", @"Error while adding zipped file"), 
