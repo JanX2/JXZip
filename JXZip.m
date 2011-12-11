@@ -10,11 +10,13 @@
 
 NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 
-#define kJXCouldNotOpenZip			1001
-#define kJXCouldNotSaveZip			1002
-#define kJXCouldNotOpenZippedFile	1003
-#define kJXCouldNotReadZippedFile	1004
-#define kJXInvalidZippedFileInfo	1005
+#define kJXCouldNotOpenZip				1001
+#define kJXCouldNotSaveZip				1002
+#define kJXCouldNotOpenZippedFile		1003
+#define kJXCouldNotReadZippedFile		1004
+#define kJXInvalidZippedFileInfo		1005
+#define kJXCouldNotAddZippedFile		1006
+#define kJXCouldNotReplaceZippedFile	1007
 
 @interface JXZippedFileInfo (Protected)
 + (JXZippedFileInfo *)zippedFileInfoWithArchive:(void *)archive fileName:(NSString *)fileName error:(NSError **)error;
@@ -119,6 +121,8 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 
 - (NSData *)dataForZippedFileInfo:(JXZippedFileInfo *)zippedFileInfo error:(NSError **)error;
 {
+	if (zippedFileInfo == nil)  return nil;
+
 	zip_uint64_t zipped_file_index = zippedFileInfo.index;
 	zip_uint64_t zipped_file_size = zippedFileInfo.size;
 	
@@ -172,6 +176,65 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 	
 	return [NSData dataWithBytesNoCopy:buf length:(NSUInteger)zipped_file_size freeWhenDone:YES];
 }
+
+
+- (BOOL)addFileWithName:(NSString *)fileName forData:(NSData *)data error:(NSError **)error;
+{
+	if ((fileName == nil) || (data == nil))  return NO;
+	
+	const char * file_name = [fileName UTF8String];
+	struct zip_source *file_zip_source = zip_source_buffer(za, [data bytes], [data length], 0);
+	
+	if ((file_zip_source == NULL)
+		|| (zip_add(za, file_name, file_zip_source) < 0)
+		) { 
+		if (error != NULL) {
+			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Error while adding zipped file “%@” in archive “%@”: %s", @"Error while adding zipped file"), 
+											  fileName, zipFileURL, zip_strerror(za)];
+			NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
+										 errorDescription, NSLocalizedDescriptionKey, 
+										 nil];
+			*error = [NSError errorWithDomain:JXZipErrorDomain code:kJXCouldNotAddZippedFile userInfo:errorDetail];
+		}
+		
+		if (file_zip_source != NULL)  zip_source_free(file_zip_source); 
+		
+		return NO;
+	}
+	
+	// We don’t need to zip_source_free() here, as libzip takes care of it once we have reached this line.
+	
+	return YES;
+}
+
+- (BOOL)replaceFile:(JXZippedFileInfo *)zippedFileInfo withData:(NSData *)data error:(NSError **)error;
+{
+	if (zippedFileInfo == nil)  return NO;
+	
+	struct zip_source *file_zip_source = zip_source_buffer(za, [data bytes], [data length], 0);
+	
+	if ((file_zip_source == NULL)
+		|| (zip_replace(za, zippedFileInfo.index, file_zip_source) < 0)
+		) { 
+		if (error != NULL) {
+			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Error while replacing zipped file “%@” in archive “%@”: %s", @"Error while replacing zipped file"), 
+											  zippedFileInfo.name, zipFileURL, zip_strerror(za)];
+			NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
+										 errorDescription, NSLocalizedDescriptionKey, 
+										 nil];
+			*error = [NSError errorWithDomain:JXZipErrorDomain code:kJXCouldNotReplaceZippedFile userInfo:errorDetail];
+		}
+		
+		if (file_zip_source != NULL)  zip_source_free(file_zip_source); 
+		
+		return NO;
+	}
+	
+	// We don’t need to zip_source_free() here, as libzip takes care of it once we have reached this line.
+	
+	return YES;
+}
+
 
 - (BOOL)saveAndReturnError:(NSError **)error;
 {
