@@ -190,7 +190,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* libzip.framework */;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = libzip.framework;
 		};
 		3D62A7D2148EA1C300D9B13A /* PBXContainerItemProxy */ = {
@@ -211,21 +211,21 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3D62A7EC148EA1ED00D9B13A /* ziptorrent */;
+			remoteGlobalIDString = 3D62A7EC148EA1ED00D9B13A;
 			remoteInfo = ziptorrent;
 		};
 		3D62A812148EA23600D9B13A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3D62A7D0148EA1C300D9B13A /* zipmerge */;
+			remoteGlobalIDString = 3D62A7D0148EA1C300D9B13A;
 			remoteInfo = zipmerge;
 		};
 		3D62A814148EA23600D9B13A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3D62A78A148EA01500D9B13A /* zipcmp */;
+			remoteGlobalIDString = 3D62A78A148EA01500D9B13A;
 			remoteInfo = zipcmp;
 		};
 /* End PBXContainerItemProxy section */
