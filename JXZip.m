@@ -24,8 +24,8 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 @end
 
 @interface JXZip ()
-@property (nonatomic, retain) NSURL *zipFileURL;
-@property (nonatomic, assign) struct zip *za;
+@property (nonatomic, readwrite, retain) NSURL *zipFileURL;
+@property (nonatomic, readwrite, assign) struct zip *za;
 @end
 
 @implementation JXZip
