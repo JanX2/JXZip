@@ -1,0 +1,3 @@
+[submodule "libzip"]
+	path = libzip
+	url = git@github.com:JanX2/libzip-git.git
