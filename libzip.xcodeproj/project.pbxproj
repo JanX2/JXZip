@@ -172,6 +172,18 @@
 		3D62A7F2148EA1ED00D9B13A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D62A608148E805800D9B13A /* libz.dylib */; };
 		3D62A7F3148EA1ED00D9B13A /* libzip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* libzip.framework */; };
 		3D62A808148EA21B00D9B13A /* ziptorrent.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D62A787148E9FBB00D9B13A /* ziptorrent.c */; };
+		3D6EFA4C15A1D22D0071B820 /* zip_dir_add.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EFA4B15A1D22D0071B820 /* zip_dir_add.c */; };
+		3D6EFA4D15A1D22D0071B820 /* zip_dir_add.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EFA4B15A1D22D0071B820 /* zip_dir_add.c */; };
+		3D6EFA4F15A1D2390071B820 /* zip_file_add.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EFA4E15A1D2390071B820 /* zip_file_add.c */; };
+		3D6EFA5015A1D2390071B820 /* zip_file_add.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EFA4E15A1D2390071B820 /* zip_file_add.c */; };
+		3D6EFA5215A1D2760071B820 /* zip_file_replace.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EFA5115A1D2760071B820 /* zip_file_replace.c */; };
+		3D6EFA5315A1D2760071B820 /* zip_file_replace.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EFA5115A1D2760071B820 /* zip_file_replace.c */; };
+		3D6EFA5515A1D29B0071B820 /* zip_file_rename.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EFA5415A1D29B0071B820 /* zip_file_rename.c */; };
+		3D6EFA5615A1D29B0071B820 /* zip_file_rename.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EFA5415A1D29B0071B820 /* zip_file_rename.c */; };
+		3D6EFA5815A1D2B70071B820 /* zip_file_get_comment.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EFA5715A1D2B70071B820 /* zip_file_get_comment.c */; };
+		3D6EFA5915A1D2B70071B820 /* zip_file_get_comment.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EFA5715A1D2B70071B820 /* zip_file_get_comment.c */; };
+		3D6EFA5B15A1D2BE0071B820 /* zip_file_set_comment.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EFA5A15A1D2BE0071B820 /* zip_file_set_comment.c */; };
+		3D6EFA5C15A1D2BE0071B820 /* zip_file_set_comment.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D6EFA5A15A1D2BE0071B820 /* zip_file_set_comment.c */; };
 		3DA8E1411559733300BDBCB2 /* zip_add_entry.c in Sources */ = {isa = PBXBuildFile; fileRef = 3DA8E1401559733300BDBCB2 /* zip_add_entry.c */; };
 		3DA8E1421559733300BDBCB2 /* zip_add_entry.c in Sources */ = {isa = PBXBuildFile; fileRef = 3DA8E1401559733300BDBCB2 /* zip_add_entry.c */; };
 		3DA8E1441559735F00BDBCB2 /* zip_entry.c in Sources */ = {isa = PBXBuildFile; fileRef = 3DA8E1431559735F00BDBCB2 /* zip_entry.c */; };
@@ -326,6 +338,12 @@
 		3D62A78B148EA01500D9B13A /* zipcmp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = zipcmp; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D62A7DB148EA1C300D9B13A /* zipmerge */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = zipmerge; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D62A7F7148EA1ED00D9B13A /* ziptorrent */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ziptorrent; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D6EFA4B15A1D22D0071B820 /* zip_dir_add.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip_dir_add.c; sourceTree = "<group>"; };
+		3D6EFA4E15A1D2390071B820 /* zip_file_add.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip_file_add.c; sourceTree = "<group>"; };
+		3D6EFA5115A1D2760071B820 /* zip_file_replace.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip_file_replace.c; sourceTree = "<group>"; };
+		3D6EFA5415A1D29B0071B820 /* zip_file_rename.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip_file_rename.c; sourceTree = "<group>"; };
+		3D6EFA5715A1D2B70071B820 /* zip_file_get_comment.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip_file_get_comment.c; sourceTree = "<group>"; };
+		3D6EFA5A15A1D2BE0071B820 /* zip_file_set_comment.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip_file_set_comment.c; sourceTree = "<group>"; };
 		3DA8E1401559733300BDBCB2 /* zip_add_entry.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip_add_entry.c; sourceTree = "<group>"; };
 		3DA8E1431559735F00BDBCB2 /* zip_entry.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip_entry.c; sourceTree = "<group>"; };
 		3DA8E1461559737A00BDBCB2 /* zip_extra_field_api.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip_extra_field_api.c; sourceTree = "<group>"; };
@@ -460,6 +478,7 @@
 				3D62A4D2148E7CB100D9B13A /* zip_add_dir.c */,
 				3D62A4D3148E7CB100D9B13A /* zip_close.c */,
 				3D62A4D4148E7CB100D9B13A /* zip_delete.c */,
+				3D6EFA4B15A1D22D0071B820 /* zip_dir_add.c */,
 				3D62A4D5148E7CB100D9B13A /* zip_dirent.c */,
 				3DFCFBDD15231ED900FACA35 /* zip_discard.c */,
 				3DA8E1431559735F00BDBCB2 /* zip_entry.c */,
@@ -474,9 +493,14 @@
 				3D62A4DE148E7CB100D9B13A /* zip_error_to_str.c */,
 				3D62A4DF148E7CB100D9B13A /* zip_fclose.c */,
 				3D62A4E0148E7CB100D9B13A /* zip_fdopen.c */,
+				3D6EFA4E15A1D2390071B820 /* zip_file_add.c */,
 				3D62A4E1148E7CB100D9B13A /* zip_file_error_clear.c */,
 				3D62A4E2148E7CB100D9B13A /* zip_file_error_get.c */,
+				3D6EFA5715A1D2B70071B820 /* zip_file_get_comment.c */,
 				3D62A4E3148E7CB100D9B13A /* zip_file_get_offset.c */,
+				3D6EFA5415A1D29B0071B820 /* zip_file_rename.c */,
+				3D6EFA5115A1D2760071B820 /* zip_file_replace.c */,
+				3D6EFA5A15A1D2BE0071B820 /* zip_file_set_comment.c */,
 				3D62A4E4148E7CB100D9B13A /* zip_file_strerror.c */,
 				3D62A4E5148E7CB100D9B13A /* zip_filerange_crc.c */,
 				3D62A4E6148E7CB100D9B13A /* zip_fopen.c */,
@@ -674,7 +698,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "libzip" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -794,6 +818,12 @@
 				3DA8E1491559737A00BDBCB2 /* zip_extra_field_api.c in Sources */,
 				3DA8E14B1559737A00BDBCB2 /* zip_extra_field.c in Sources */,
 				3DA8E14E155973CC00BDBCB2 /* zip_string.c in Sources */,
+				3D6EFA4D15A1D22D0071B820 /* zip_dir_add.c in Sources */,
+				3D6EFA5015A1D2390071B820 /* zip_file_add.c in Sources */,
+				3D6EFA5315A1D2760071B820 /* zip_file_replace.c in Sources */,
+				3D6EFA5615A1D29B0071B820 /* zip_file_rename.c in Sources */,
+				3D6EFA5915A1D2B70071B820 /* zip_file_get_comment.c in Sources */,
+				3D6EFA5C15A1D2BE0071B820 /* zip_file_set_comment.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -902,6 +932,12 @@
 				3DA8E1481559737A00BDBCB2 /* zip_extra_field_api.c in Sources */,
 				3DA8E14A1559737A00BDBCB2 /* zip_extra_field.c in Sources */,
 				3DA8E14D155973CC00BDBCB2 /* zip_string.c in Sources */,
+				3D6EFA4C15A1D22D0071B820 /* zip_dir_add.c in Sources */,
+				3D6EFA4F15A1D2390071B820 /* zip_file_add.c in Sources */,
+				3D6EFA5215A1D2760071B820 /* zip_file_replace.c in Sources */,
+				3D6EFA5515A1D29B0071B820 /* zip_file_rename.c in Sources */,
+				3D6EFA5815A1D2B70071B820 /* zip_file_get_comment.c in Sources */,
+				3D6EFA5B15A1D2BE0071B820 /* zip_file_set_comment.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
