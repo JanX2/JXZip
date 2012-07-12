@@ -222,7 +222,7 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 	struct zip_source *file_zip_source = zip_source_buffer(za, [data bytes], [data length], 0);
 	
 	if ((file_zip_source == NULL)
-		|| (zip_replace(za, zippedFileInfo.index, file_zip_source) < 0)
+		|| (zip_file_replace(za, zippedFileInfo.index, file_zip_source, 0) < 0)
 		) { 
 		if (error != NULL) {
 			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Error while replacing zipped file “%@” in archive “%@”: %s", @"Error while replacing zipped file"), 
