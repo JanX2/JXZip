@@ -62,7 +62,10 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 	self = [super init];
 	
 	if (self) {
-		if (fileURL == nil)  return nil;
+		if (fileURL == nil) {
+			[self release];
+			return nil;
+		}
 		
 		self.zipFileURL = fileURL;
 		
@@ -84,6 +87,7 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 				*error = [NSError errorWithDomain:JXZipErrorDomain code:kJXCouldNotOpenZip userInfo:errorDetail];
 			}
 			
+			[self release];
 			return nil;
 		}
 	}
