@@ -22,8 +22,11 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 #define kJXCouldNotReplaceZippedFile	1007
 
 @interface JXZippedFileInfo (Protected)
-+ (JXZippedFileInfo *)zippedFileInfoWithArchive:(struct zip *)archive filePath:(NSString *)filePath error:(NSError **)error;
-- (JXZippedFileInfo *)initFileInfoWithArchive:(struct zip *)archive filePath:(NSString *)filePath error:(NSError **)error;
++ (JXZippedFileInfo *)zippedFileInfoWithArchive:(struct zip *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
+- (JXZippedFileInfo *)initFileInfoWithArchive:(struct zip *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
+
++ (JXZippedFileInfo *)zippedFileInfoWithArchive:(struct zip *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
+- (JXZippedFileInfo *)initFileInfoWithArchive:(struct zip *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
 @end
 
 @interface JXZip ()
@@ -112,35 +115,56 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 	return (NSUInteger)zip_get_num_entries(za, ZIP_FL_UNCHANGED);
 }
 
-#if 0
 - (JXZippedFileInfo *)zippedFileInfoForIndex:(NSUInteger)index error:(NSError **)error;
 {
-	return [JXZippedFileInfo zippedFileInfoWithArchive:za index:(NSUInteger)index error:error];
+	return [JXZippedFileInfo zippedFileInfoWithArchive:za index:index options:0 error:error];
 }
-#endif
+
+- (JXZippedFileInfo *)zippedFileInfoForIndex:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
+{
+	return [JXZippedFileInfo zippedFileInfoWithArchive:za index:index options:options error:error];
+}
 
 - (JXZippedFileInfo *)zippedFileInfoForFilePath:(NSString *)filePath error:(NSError **)error;
 {
-	return [JXZippedFileInfo zippedFileInfoWithArchive:za filePath:filePath error:error];
+	return [JXZippedFileInfo zippedFileInfoWithArchive:za filePath:filePath options:0 error:error];
 }
 
-#if 0
+- (JXZippedFileInfo *)zippedFileInfoForFilePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
+{
+	return [JXZippedFileInfo zippedFileInfoWithArchive:za filePath:filePath options:options error:error];
+}
+
 - (NSData *)dataForFileAtIndex:(NSUInteger)index error:(NSError **)error;
+{
+	return [self dataForFileAtIndex:index options:0 error:error];
+}
+
+- (NSData *)dataForFileAtIndex:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
 {
 	JXZippedFileInfo *zippedFileInfo = [self zippedFileInfoForIndex:index error:error];
 	if (zippedFileInfo == nil)  return nil;
-	else  return [self dataForZippedFileInfo:zippedFileInfo error:error];
+	else  return [self dataForZippedFileInfo:zippedFileInfo options:0 error:error];
 }
-#endif
 
 - (NSData *)dataForFilePath:(NSString *)filePath error:(NSError **)error;
 {
+	return [self dataForFilePath:filePath options:0 error:error];
+}
+
+- (NSData *)dataForFilePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
+{
 	JXZippedFileInfo *zippedFileInfo = [self zippedFileInfoForFilePath:filePath error:error];
 	if (zippedFileInfo == nil)  return nil;
-	else  return [self dataForZippedFileInfo:zippedFileInfo error:error];
+	else  return [self dataForZippedFileInfo:zippedFileInfo options:0 error:error];
 }
 
 - (NSData *)dataForZippedFileInfo:(JXZippedFileInfo *)zippedFileInfo error:(NSError **)error;
+{
+	return [self dataForZippedFileInfo:zippedFileInfo options:0 error:error];
+}
+
+- (NSData *)dataForZippedFileInfo:(JXZippedFileInfo *)zippedFileInfo options:(JXZipOptions)options error:(NSError **)error;
 {
 	if (zippedFileInfo == nil)  return nil;
 
@@ -159,7 +183,7 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 		return nil;
 	}
 
-	struct zip_file *zipped_file = zip_fopen_index(za, zipped_file_index, (ZIP_FL_ENC_UTF_8));
+	struct zip_file *zipped_file = zip_fopen_index(za, zipped_file_index, (options & ZIP_FL_ENC_UTF_8));
 	if (zipped_file == NULL) {
 		if (error != NULL) {
 			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Could not open zipped file “%@” in archive “%@”: %s", @"Could not open zipped file"), 

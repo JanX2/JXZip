@@ -34,11 +34,16 @@ typedef int JXZipOptions;
 - (JXZip *)initWithURL:(NSURL *)zipFileURL error:(NSError **)error;
 
 - (NSUInteger)fileCount;
-//- (JXZippedFileInfo *)zippedFileInfoForIndex:(NSUInteger)index error:(NSError **)error;
+- (JXZippedFileInfo *)zippedFileInfoForIndex:(NSUInteger)index error:(NSError **)error;
+- (JXZippedFileInfo *)zippedFileInfoForIndex:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
 - (JXZippedFileInfo *)zippedFileInfoForFilePath:(NSString *)filePath error:(NSError **)error;
-//- (NSData *)dataForFileAtIndex:(NSUInteger)index error:(NSError **)error;
+- (JXZippedFileInfo *)zippedFileInfoForFilePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
+- (NSData *)dataForFileAtIndex:(NSUInteger)index error:(NSError **)error;
+- (NSData *)dataForFileAtIndex:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
 - (NSData *)dataForFilePath:(NSString *)filePath error:(NSError **)error;
+- (NSData *)dataForFilePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
 - (NSData *)dataForZippedFileInfo:(JXZippedFileInfo *)zippedFileInfo error:(NSError **)error;
+- (NSData *)dataForZippedFileInfo:(JXZippedFileInfo *)zippedFileInfo options:(JXZipOptions)options error:(NSError **)error;
 
 - (BOOL)addFileWithPath:(NSString *)filePath forData:(NSData *)data error:(NSError **)error;
 - (BOOL)replaceFile:(JXZippedFileInfo *)zippedFileInfo withData:(NSData *)xmlData error:(NSError **)error;
