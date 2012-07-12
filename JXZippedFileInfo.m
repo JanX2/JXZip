@@ -21,25 +21,48 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 	struct zip_stat	file_info;
 }
 
-- (JXZippedFileInfo *)initFileInfoWithArchive:(struct zip *)archive filePath:(NSString *)filePath error:(NSError **)error;
+- (JXZippedFileInfo *)initFileInfoWithArchive:(struct zip *)archive
+										index:(NSUInteger)index
+									 filePath:(NSString *)filePath
+									  options:(JXZipOptions)options
+										error:(NSError **)error;
 {
 	self = [super init];
 	
 	if (self) {
 		if (archive == NULL)  return nil;
 		
-		// CHANGEME: Add support for options/flags
-		const char *file_path = [filePath UTF8String]; // autoreleased
-		if (zip_stat(archive, file_path, (ZIP_FL_ENC_UTF_8), &file_info) < 0) {
+		options = (options & ZIP_FL_ENC_UTF_8);
+		
+		int idx; // FIXME: libzip should use int, it should use zip_int64_t
+		const char *file_path = NULL;
+		
+		if (filePath != nil) {
+			file_path = [filePath UTF8String]; // autoreleased
+			idx = zip_name_locate(archive, file_path, options);
+		}
+		else {
+			idx = (int)index;
+		}
+		
+		if ((idx < 0) || (zip_stat_index(archive, (zip_uint64_t)idx, options, &file_info) < 0)) {
 			if (error != NULL) {
-				NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Could not access file info for “%@” in zipped file: %s", @"Cannot access file info in zipped file"), 
-												  filePath, zip_strerror(archive)];
+				NSDictionary *errorDescription;
+				if (filePath != nil) {
+					errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Could not access file info for “%@” in zipped file: %s", @"Cannot access file info in zipped file"),
+										filePath, zip_strerror(archive)];
+				}
+				else {
+					errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Could not access file info for file %lu in zipped file: %s", @"Cannot access file info in zipped file"),
+										(unsigned long)index, zip_strerror(archive)];
+				}
 				NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
-											 errorDescription, NSLocalizedDescriptionKey, 
+											 errorDescription, NSLocalizedDescriptionKey,
 											 nil];
 				*error = [NSError errorWithDomain:JXZippedFileInfoErrorDomain code:kJXCouldNotAccessZippedFileInfo userInfo:errorDetail];
 			}
 			
+			[self release];
 			return nil;
 		}
 	}
@@ -47,9 +70,40 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 	return self;
 }
 
-+ (JXZippedFileInfo *)zippedFileInfoWithArchive:(struct zip *)archive filePath:(NSString *)filePath error:(NSError **)error;
+- (JXZippedFileInfo *)initFileInfoWithArchive:(struct zip *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
 {
-	return [[[JXZippedFileInfo alloc] initFileInfoWithArchive:archive filePath:filePath error:error] autorelease];
+	return [self initFileInfoWithArchive:archive
+								   index:0
+								filePath:filePath
+								 options:options
+								   error:error];
+}
+
++ (JXZippedFileInfo *)zippedFileInfoWithArchive:(struct zip *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
+{
+	return [[[JXZippedFileInfo alloc] initFileInfoWithArchive:archive
+														index:0
+													 filePath:filePath
+													  options:options
+														error:error] autorelease];
+}
+
+- (JXZippedFileInfo *)initFileInfoWithArchive:(struct zip *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
+{
+	return [self initFileInfoWithArchive:archive
+								   index:index
+								filePath:nil
+								 options:options
+								   error:error];
+}
+
++ (JXZippedFileInfo *)zippedFileInfoWithArchive:(struct zip *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
+{
+	return [[[JXZippedFileInfo alloc] initFileInfoWithArchive:archive
+														index:index
+													 filePath:nil
+													  options:options
+														error:error] autorelease];
 }
 
 - (void)dealloc
