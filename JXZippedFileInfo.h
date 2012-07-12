@@ -10,6 +10,8 @@
 
 @interface JXZippedFileInfo : NSObject
 
+// FIXME: the properties currently are read only
+
 - (NSString *)path;				// path of the file
 - (NSUInteger)index;			// index within the archive
 - (NSUInteger)size;				// size of the file (uncompressed)
