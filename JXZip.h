@@ -25,12 +25,12 @@
 
 - (NSUInteger)fileCount;
 //- (JXZippedFileInfo *)zippedFileInfoForIndex:(NSUInteger)index error:(NSError **)error;
-- (JXZippedFileInfo *)zippedFileInfoForFileName:(NSString *)fileName error:(NSError **)error;
+- (JXZippedFileInfo *)zippedFileInfoForFilePath:(NSString *)filePath error:(NSError **)error;
 //- (NSData *)dataForFileAtIndex:(NSUInteger)index error:(NSError **)error;
-- (NSData *)dataForFileName:(NSString *)fileName error:(NSError **)error;
+- (NSData *)dataForFilePath:(NSString *)filePath error:(NSError **)error;
 - (NSData *)dataForZippedFileInfo:(JXZippedFileInfo *)zippedFileInfo error:(NSError **)error;
 
-- (BOOL)addFileWithName:(NSString *)fileName forData:(NSData *)data error:(NSError **)error;
+- (BOOL)addFileWithPath:(NSString *)filePath forData:(NSData *)data error:(NSError **)error;
 - (BOOL)replaceFile:(JXZippedFileInfo *)zippedFileInfo withData:(NSData *)xmlData error:(NSError **)error;
 
 - (BOOL)saveAndReturnError:(NSError **)error;

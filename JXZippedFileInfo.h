@@ -14,7 +14,7 @@
 	struct zip_stat	file_info;
 }
 
-- (NSString *)name;				// name of the file
+- (NSString *)path;				// path of the file
 - (NSUInteger)index;			// index within the archive
 - (NSUInteger)size;				// size of the file (uncompressed)
 - (NSUInteger)compressedSize;	// size of the file (compressed)

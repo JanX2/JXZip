@@ -17,7 +17,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 
 @implementation JXZippedFileInfo
 
-- (JXZippedFileInfo *)initFileInfoWithArchive:(void *)archive fileName:(NSString *)fileName error:(NSError **)error;
+- (JXZippedFileInfo *)initFileInfoWithArchive:(void *)archive filePath:(NSString *)filePath error:(NSError **)error;
 {
 	self = [super init];
 	
@@ -27,11 +27,11 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 		struct zip *za = (struct zip *)archive;
 
 		// CHANGEME: Add support for options/flags
-		const char *file_name = [fileName UTF8String]; // autoreleased
-		if (zip_stat(za, file_name, 0, &file_info) < 0) {
+		const char *file_path = [filePath UTF8String]; // autoreleased
+		if (zip_stat(za, file_path, 0, &file_info) < 0) {
 			if (error != NULL) {
 				NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Could not access file info for “%@” in zipped file: %s", @"Cannot access file info in zipped file"), 
-												  fileName, zip_strerror(za)];
+												  filePath, zip_strerror(za)];
 				NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
 											 errorDescription, NSLocalizedDescriptionKey, 
 											 nil];
@@ -45,9 +45,9 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 	return self;
 }
 
-+ (JXZippedFileInfo *)zippedFileInfoWithArchive:(void *)archive fileName:(NSString *)fileName error:(NSError **)error;
++ (JXZippedFileInfo *)zippedFileInfoWithArchive:(void *)archive filePath:(NSString *)filePath error:(NSError **)error;
 {
-	return [[[JXZippedFileInfo alloc] initFileInfoWithArchive:archive fileName:fileName error:error] autorelease];
+	return [[[JXZippedFileInfo alloc] initFileInfoWithArchive:archive filePath:filePath error:error] autorelease];
 }
 
 - (void)dealloc
@@ -59,7 +59,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 }
 
 
-- (NSString *)name;
+- (NSString *)path;
 {
 	if (file_info.valid & ZIP_STAT_NAME) {
 		// CHANGEME: We assume the file names are UTF-8.
