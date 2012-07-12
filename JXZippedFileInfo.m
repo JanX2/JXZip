@@ -3,7 +3,7 @@
 //  odt-testbed
 //
 //  Created by Jan on 10.12.11.
-//  Copyright 2011 geheimwerk.de. All rights reserved.
+//  Copyright 2012 geheimwerk.de. All rights reserved.
 //
 
 #import "JXZippedFileInfo.h"
