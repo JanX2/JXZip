@@ -217,7 +217,7 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 
 - (BOOL)replaceFile:(JXZippedFileInfo *)zippedFileInfo withData:(NSData *)data error:(NSError **)error;
 {
-	if (zippedFileInfo == nil)  return NO;
+	if ((zippedFileInfo == nil) || (data == nil))  return NO;
 	
 	struct zip_source *file_zip_source = zip_source_buffer(za, [data bytes], [data length], 0);
 	
