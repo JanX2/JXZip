@@ -51,7 +51,7 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 		const char * zip_file_path = [[fileURL path] UTF8String];
 		int err;
 		
-		za = zip_open(zip_file_path, 0, &err);
+		za = zip_open(zip_file_path, (ZIP_FL_ENC_UTF_8), &err);
 		
 		if (za == NULL) {
 			if (error != NULL) {
@@ -143,7 +143,7 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 		return nil;
 	}
 
-	struct zip_file *zipped_file = zip_fopen_index(za, zipped_file_index, 0);
+	struct zip_file *zipped_file = zip_fopen_index(za, zipped_file_index, (ZIP_FL_ENC_UTF_8));
 	if (zipped_file == NULL) {
 		if (error != NULL) {
 			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Could not open zipped file “%@” in archive “%@”: %s", @"Could not open zipped file"), 
@@ -194,7 +194,7 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 	zip_int64_t index;
 	
 	if ((file_zip_source == NULL)
-		|| ((index = zip_add(za, file_path, file_zip_source)) < 0)
+		|| ((index = zip_file_add(za, file_path, file_zip_source, (ZIP_FL_ENC_UTF_8))) < 0)
 		) { 
 		if (error != NULL) {
 			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Error while adding zipped file “%@” in archive “%@”: %s", @"Error while adding zipped file"), 

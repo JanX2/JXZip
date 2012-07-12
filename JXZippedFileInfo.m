@@ -32,7 +32,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 
 		// CHANGEME: Add support for options/flags
 		const char *file_path = [filePath UTF8String]; // autoreleased
-		if (zip_stat(za, file_path, 0, &file_info) < 0) {
+		if (zip_stat(za, file_path, (ZIP_FL_ENC_UTF_8), &file_info) < 0) {
 			if (error != NULL) {
 				NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Could not access file info for “%@” in zipped file: %s", @"Cannot access file info in zipped file"), 
 												  filePath, zip_strerror(za)];
