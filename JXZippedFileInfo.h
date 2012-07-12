@@ -16,9 +16,10 @@
 - (NSUInteger)compressedSize;	// size of the file (compressed)
 - (NSDate *)modificationDate;	// modification date
 - (uint32_t)crc;				// crc of file data
-#if 0
+
+// To get more info about the values returned from the following two methods,
+// check the libzip header file for now!
 - (uint16_t)compressionMethod;	// compression method used
 - (uint16_t)encryptionMethod;	// encryption method used
-#endif
 
 @end

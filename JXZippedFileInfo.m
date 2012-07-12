@@ -160,10 +160,18 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 	else  return NSNotFound;
 }
 
-#if 0
 - (uint16_t)compressionMethod;
+{
+	if (file_info.comp_method & ZIP_STAT_COMP_METHOD)  return (uint16_t)file_info.crc;
+	else  return ZIP_EM_UNKNOWN;
+}
+
 - (uint16_t)encryptionMethod;
-#endif
+{
+	if (file_info.encryption_method & ZIP_STAT_ENCRYPTION_METHOD)  return (uint16_t)file_info.crc;
+	else  return 0xffff; // Unknown
+}
+
 
 
 @end
