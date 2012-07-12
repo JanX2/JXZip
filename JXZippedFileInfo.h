@@ -8,11 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import <libzip/zip.h>
-
-@interface JXZippedFileInfo : NSObject {
-	struct zip_stat	file_info;
-}
+@interface JXZippedFileInfo : NSObject
 
 - (NSString *)path;				// path of the file
 - (NSUInteger)index;			// index within the archive

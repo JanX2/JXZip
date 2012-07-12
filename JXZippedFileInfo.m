@@ -10,12 +10,16 @@
 
 #import "JXZip.h"
 
+#import <libzip/zip.h>
+
 NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedFileInfo";
 
 #define kJXCouldNotAccessZippedFileInfo 1101
 
 
-@implementation JXZippedFileInfo
+@implementation JXZippedFileInfo {
+	struct zip_stat	file_info;
+}
 
 - (JXZippedFileInfo *)initFileInfoWithArchive:(void *)archive filePath:(NSString *)filePath error:(NSError **)error;
 {
