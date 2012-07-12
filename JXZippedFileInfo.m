@@ -154,11 +154,18 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 	}
 }
 
-- (uint32_t)crc;
+
+- (BOOL)hasCRC;
 {
-	if (file_info.valid & ZIP_STAT_CRC)  return (uint32_t)file_info.crc;
-	else  return NSNotFound;
+	if (file_info.valid & ZIP_STAT_CRC)  return YES;
+	else  return NO;
 }
+
+- (uint32_t)CRC;
+{
+	return (uint32_t)file_info.crc;
+}
+
 
 - (uint16_t)compressionMethod;
 {

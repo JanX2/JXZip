@@ -15,7 +15,9 @@
 - (NSUInteger)size;				// size of the file (uncompressed)
 - (NSUInteger)compressedSize;	// size of the file (compressed)
 - (NSDate *)modificationDate;	// modification date
-- (uint32_t)crc;				// crc of file data
+
+- (BOOL)hasCRC;
+- (uint32_t)CRC;				// crc of file data
 
 // To get more info about the values returned from the following two methods,
 // check the libzip header file for now!
