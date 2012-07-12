@@ -8,9 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import <libzip/zip.h>
-#import "JXZippedFileInfo.h"
-
 enum {
 	JXZipCaseInsensitivePathLookup =		1,		// Ignore case on path lookup
 	
@@ -25,13 +22,13 @@ enum {
 };
 typedef int JXZipOptions;
 
-@interface JXZip : NSObject {
-	NSURL *zipFileURL;
-	struct zip *za;
-}
+
+@class JXZippedFileInfo;
+
+
+@interface JXZip : NSObject
 
 @property (nonatomic, readonly, retain) NSURL *zipFileURL;
-@property (nonatomic, readonly, assign) struct zip *za;
 
 + (JXZip *)zipWithURL:(NSURL *)zipFileURL error:(NSError **)error;
 - (JXZip *)initWithURL:(NSURL *)zipFileURL error:(NSError **)error;

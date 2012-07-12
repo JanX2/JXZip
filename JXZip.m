@@ -8,6 +8,9 @@
 
 #import "JXZip.h"
 
+#import "JXZippedFileInfo.h"
+#import <libzip/zip.h>
+
 NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 
 #define kJXCouldNotOpenZip				1001
@@ -28,7 +31,10 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 @property (nonatomic, readwrite, assign) struct zip *za;
 @end
 
-@implementation JXZip
+@implementation JXZip {
+	NSURL *zipFileURL;
+	struct zip *za;
+}
 
 @synthesize zipFileURL;
 @synthesize za;
