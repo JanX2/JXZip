@@ -11,6 +11,19 @@
 #import <libzip/zip.h>
 #import "JXZippedFileInfo.h"
 
+enum {
+	JXZipCaseInsensitivePathLookup =		1,		// Ignore case on path lookup
+	
+	JXZipReadCompressedData =				4,		// Read compressed data
+	JXZipUseOriginalDataIgnoringChanges = 	8,		// Use original data, ignoring changes
+	JXZipForceRecompressionOfData =			16, 	// Force recompression of data
+	JXZipWantEncryptedData =				32, 	// Read encrypted data (implies JXZipReadCompressedData)
+	
+	JXZipWantUnmodifiedString =				64, 	// Get unmodified string
+	
+	JXZipOverwrite =						8192	// When adding a file to a ZIP archive and a file with same path exists, replace it
+};
+typedef int JXZipOptions;
 
 @interface JXZip : NSObject {
 	NSURL *zipFileURL;

@@ -35,10 +35,20 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 
 + (JXZip *)zipWithURL:(NSURL *)fileURL error:(NSError **)error;
 {
-	return [[[JXZip alloc] initWithURL:fileURL error:error] autorelease];
+	return [[[JXZip alloc] initWithURL:fileURL options:0 error:error] autorelease];
+}
+
++ (JXZip *)zipWithURL:(NSURL *)fileURL options:(JXZipOptions)options error:(NSError **)error;
+{
+	return [[[JXZip alloc] initWithURL:fileURL options:options error:error] autorelease];
 }
 
 - (JXZip *)initWithURL:(NSURL *)fileURL error:(NSError **)error;
+{
+	return [self initWithURL:fileURL options:0 error:error];
+}
+
+- (JXZip *)initWithURL:(NSURL *)fileURL options:(JXZipOptions)options error:(NSError **)error;
 {
 	self = [super init];
 	
@@ -51,7 +61,7 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 		const char * zip_file_path = [[fileURL path] UTF8String];
 		int err;
 		
-		za = zip_open(zip_file_path, (ZIP_FL_ENC_UTF_8), &err);
+		za = zip_open(zip_file_path, (options & ZIP_FL_ENC_UTF_8), &err);
 		
 		if (za == NULL) {
 			if (error != NULL) {
