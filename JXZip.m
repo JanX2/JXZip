@@ -187,7 +187,7 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 {
 	if ((filePath == nil) || (data == nil))  return NO;
 	
-	// CHANGEME: Passing the index along might be helpful
+	// CHANGEME: Passing the index back might be helpful
 	
 	const char * file_path = [filePath UTF8String];
 	struct zip_source *file_zip_source = zip_source_buffer(za, [data bytes], [data length], 0);
@@ -238,7 +238,7 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 		return NO;
 	}
 	
-	// We don’t need to zip_source_free() here, as libzip takes care of it once we have reached this line.
+	// We don’t need to zip_source_free() here, as libzip has taken care of it once we have reached this line.
 	
 	return YES;
 }
