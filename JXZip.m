@@ -22,8 +22,8 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 #define kJXCouldNotReplaceZippedFile	1007
 
 @interface JXZippedFileInfo (Protected)
-+ (JXZippedFileInfo *)zippedFileInfoWithArchive:(void *)archive filePath:(NSString *)filePath error:(NSError **)error;
-- (JXZippedFileInfo *)initFileInfoWithArchive:(void *)archive filePath:(NSString *)filePath error:(NSError **)error;
++ (JXZippedFileInfo *)zippedFileInfoWithArchive:(struct zip *)archive filePath:(NSString *)filePath error:(NSError **)error;
+- (JXZippedFileInfo *)initFileInfoWithArchive:(struct zip *)archive filePath:(NSString *)filePath error:(NSError **)error;
 @end
 
 @interface JXZip ()
