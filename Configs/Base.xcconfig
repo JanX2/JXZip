@@ -1,4 +1,4 @@
-ARCHS = x86_64 i386
+ARCHS = $(ARCHS_STANDARD_64_BIT)
 SDKROOT = macosx10.7
 MACOSX_DEPLOYMENT_TARGET = 10.6
 GCC_VERSION = com.apple.compilers.llvm.clang.1_0
