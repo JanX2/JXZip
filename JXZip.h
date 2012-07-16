@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "JXZippedFileInfo.h"
+
 enum {
 	JXZipCaseInsensitivePathLookup =		1,		// Ignore case on path lookup
 	
