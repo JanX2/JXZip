@@ -18,7 +18,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 
 
 @implementation JXZippedFileInfo {
-	struct zip_stat	file_info;
+	struct zip_stat	_file_info;
 }
 
 - (JXZippedFileInfo *)initFileInfoWithArchive:(struct zip *)archive
@@ -45,7 +45,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 			idx = (int)index;
 		}
 		
-		if ((idx < 0) || (zip_stat_index(archive, (zip_uint64_t)idx, options, &file_info) < 0)) {
+		if ((idx < 0) || (zip_stat_index(archive, (zip_uint64_t)idx, options, &_file_info) < 0)) {
 			if (error != NULL) {
 				NSDictionary *errorDescription;
 				if (filePath != nil) {
@@ -117,9 +117,9 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 
 - (NSString *)path;
 {
-	if (file_info.valid & ZIP_STAT_NAME) {
+	if (_file_info.valid & ZIP_STAT_NAME) {
 		// CHANGEME: We assume the file names are UTF-8.
-		return [NSString stringWithCString:file_info.name encoding:NSUTF8StringEncoding];
+		return [NSString stringWithCString:_file_info.name encoding:NSUTF8StringEncoding];
 	}
 	else {
 		return nil;
@@ -128,26 +128,26 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 
 - (NSUInteger)index;
 {
-	if (file_info.valid & ZIP_STAT_INDEX)  return (NSUInteger)file_info.index;
+	if (_file_info.valid & ZIP_STAT_INDEX)  return (NSUInteger)_file_info.index;
 	else  return NSNotFound;
 }
 
 - (NSUInteger)size;
 {
-	if (file_info.valid & ZIP_STAT_SIZE)  return (NSUInteger)file_info.size;
+	if (_file_info.valid & ZIP_STAT_SIZE)  return (NSUInteger)_file_info.size;
 	else  return NSNotFound;
 }
 
 - (NSUInteger)compressedSize;
 {
-	if (file_info.valid & ZIP_STAT_COMP_SIZE)  return (NSUInteger)file_info.comp_size;
+	if (_file_info.valid & ZIP_STAT_COMP_SIZE)  return (NSUInteger)_file_info.comp_size;
 	else  return NSNotFound;
 }
 
 - (NSDate *)modificationDate;
 {
-	if (file_info.valid & ZIP_STAT_MTIME) {
-		return [NSDate dateWithTimeIntervalSince1970:file_info.mtime];
+	if (_file_info.valid & ZIP_STAT_MTIME) {
+		return [NSDate dateWithTimeIntervalSince1970:_file_info.mtime];
 	}
 	else {
 		return nil;
@@ -157,25 +157,25 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 
 - (BOOL)hasCRC;
 {
-	if (file_info.valid & ZIP_STAT_CRC)  return YES;
+	if (_file_info.valid & ZIP_STAT_CRC)  return YES;
 	else  return NO;
 }
 
 - (uint32_t)CRC;
 {
-	return (uint32_t)file_info.crc;
+	return (uint32_t)_file_info.crc;
 }
 
 
 - (uint16_t)compressionMethod;
 {
-	if (file_info.comp_method & ZIP_STAT_COMP_METHOD)  return (uint16_t)file_info.crc;
+	if (_file_info.comp_method & ZIP_STAT_COMP_METHOD)  return (uint16_t)_file_info.crc;
 	else  return ZIP_EM_UNKNOWN;
 }
 
 - (uint16_t)encryptionMethod;
 {
-	if (file_info.encryption_method & ZIP_STAT_ENCRYPTION_METHOD)  return (uint16_t)file_info.crc;
+	if (_file_info.encryption_method & ZIP_STAT_ENCRYPTION_METHOD)  return (uint16_t)_file_info.crc;
 	else  return 0xffff; // Unknown
 }
 
