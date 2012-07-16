@@ -254,8 +254,6 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 		return NO;
 	}
 	
-	// We don’t need to zip_source_free() here, as libzip takes care of it once we have reached this line.
-	
 	return YES;
 }
 
