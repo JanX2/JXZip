@@ -30,16 +30,16 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 @end
 
 @interface JXZip ()
-@property (nonatomic, readwrite, retain) NSURL *zipFileURL;
+@property (nonatomic, readwrite, retain) NSURL *URL;
 @property (nonatomic, readwrite, assign) struct zip *za;
 @end
 
 @implementation JXZip {
-	NSURL *zipFileURL;
+	NSURL *URL;
 	struct zip *za;
 }
 
-@synthesize zipFileURL;
+@synthesize URL;
 @synthesize za;
 
 + (JXZip *)zipWithURL:(NSURL *)fileURL error:(NSError **)error;
@@ -67,7 +67,7 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 			return nil;
 		}
 		
-		self.zipFileURL = fileURL;
+		self.URL = fileURL;
 		
 		// NOTE: We could rewrite this using file descriptors.
 		const char * zip_file_path = [[fileURL path] UTF8String];
@@ -99,7 +99,7 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 
 - (void) dealloc
 {
-	self.zipFileURL = nil;
+	self.URL = nil;
 	
 	if (za != NULL) {
 		zip_unchange_all(za);
@@ -191,7 +191,7 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 	if (zipped_file == NULL) {
 		if (error != NULL) {
 			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Could not open zipped file “%@” in archive “%@”: %s", @"Could not open zipped file"), 
-											  zippedFileInfo.path, zipFileURL, zip_strerror(za)];
+											  zippedFileInfo.path, self.URL, zip_strerror(za)];
 			NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
 										 errorDescription, NSLocalizedDescriptionKey, 
 										 nil];
@@ -207,7 +207,7 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 	if (n < (zip_int64_t)zipped_file_size) {
 		if (error != NULL) {
 			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Error while reading zipped file “%@” in archive “%@”: %s", @"Error while reading zipped file"), 
-											  zippedFileInfo.path, zipFileURL, zip_file_strerror(zipped_file)];
+											  zippedFileInfo.path, self.URL, zip_file_strerror(zipped_file)];
 			NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
 										 errorDescription, NSLocalizedDescriptionKey, 
 										 nil];
@@ -242,7 +242,7 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 		) { 
 		if (error != NULL) {
 			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Error while adding zipped file “%@” in archive “%@”: %s", @"Error while adding zipped file"), 
-											  filePath, zipFileURL, zip_strerror(za)];
+											  filePath, self.URL, zip_strerror(za)];
 			NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
 										 errorDescription, NSLocalizedDescriptionKey, 
 										 nil];
@@ -268,7 +268,7 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 		) { 
 		if (error != NULL) {
 			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Error while replacing zipped file “%@” in archive “%@”: %s", @"Error while replacing zipped file"), 
-											  zippedFileInfo.path, zipFileURL, zip_strerror(za)];
+											  zippedFileInfo.path, self.URL, zip_strerror(za)];
 			NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
 										 errorDescription, NSLocalizedDescriptionKey, 
 										 nil];
@@ -293,7 +293,7 @@ NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 	if (zip_close(za) < 0) {
 		if (error != NULL) {
 			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"The zip archive “%@” could not be saved: %s", @"Cannot save zip archive"), 
-											  zipFileURL, zip_strerror(za)];
+											  self.URL, zip_strerror(za)];
 			NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
 										 errorDescription, NSLocalizedDescriptionKey, 
 										 nil];

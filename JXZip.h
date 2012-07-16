@@ -30,7 +30,7 @@ typedef int JXZipOptions;
 
 @interface JXZip : NSObject
 
-@property (nonatomic, readonly, retain) NSURL *zipFileURL;
+@property (nonatomic, readonly, retain) NSURL *URL;
 
 + (JXZip *)zipWithURL:(NSURL *)zipFileURL error:(NSError **)error;
 - (JXZip *)initWithURL:(NSURL *)zipFileURL error:(NSError **)error;
