@@ -72,11 +72,12 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 
 - (JXZippedFileInfo *)initFileInfoWithArchive:(struct zip *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
 {
-	return [self initFileInfoWithArchive:archive
-								   index:0
-								filePath:filePath
-								 options:options
-								   error:error];
+	if (filePath == nil)  return nil;
+	else  return [self initFileInfoWithArchive:archive
+										 index:0
+									  filePath:filePath
+									   options:options
+										 error:error];
 }
 
 + (JXZippedFileInfo *)zippedFileInfoWithArchive:(struct zip *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
