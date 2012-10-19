@@ -34,7 +34,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 		
 		options = (options & ZIP_FL_ENC_UTF_8);
 		
-		int idx; // FIXME: libzip should use int, it should use zip_int64_t
+		int idx; // FIXME: libzip shouldn’t use int, it should use zip_int64_t
 		const char *file_path = NULL;
 		
 		if (filePath != nil) {
@@ -118,7 +118,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 - (NSString *)path;
 {
 	if (_file_info.valid & ZIP_STAT_NAME) {
-		// CHANGEME: We assume the file names are UTF-8.
+		// FIXME: We assume the file names are UTF-8.
 		return [NSString stringWithCString:_file_info.name encoding:NSUTF8StringEncoding];
 	}
 	else {
