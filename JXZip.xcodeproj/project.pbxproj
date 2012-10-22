@@ -17,8 +17,9 @@
 		3D1F1B0315B3FC5F00DEC23F /* JXZipTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F1B0215B3FC5F00DEC23F /* JXZipTest.m */; };
 		3D1F1B6F15B4086000DEC23F /* test.zip in Resources */ = {isa = PBXBuildFile; fileRef = 3D1F1B6E15B4085F00DEC23F /* test.zip */; };
 		3D1F1B8B15B40DB000DEC23F /* JXZip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1F1A8315B32D3C00DEC23F /* JXZip.framework */; };
+		3D985584163580EF00EEB44B /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D985583163580EF00EEB44B /* zip.h */; };
+		3D985620163586BB00EEB44B /* libzip Mac.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD9BE641631C1C70094B812 /* libzip Mac.framework */; };
 		3DD9BECC1631C7D80094B812 /* libzip Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD9BE641631C1C70094B812 /* libzip Mac.framework */; };
-		3DD9BECD1631C80B0094B812 /* libzip Mac.framework in Resources */ = {isa = PBXBuildFile; fileRef = 3DD9BE641631C1C70094B812 /* libzip Mac.framework */; };
 		3DD9BEFB1631C9130094B812 /* zipconf.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DD9BEFA1631C9130094B812 /* zipconf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3DE00EB815CEA7AE00B0C42F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE00EB715CEA7AE00B0C42F /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -159,6 +160,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3D98560A163586A800EEB44B /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3D985620163586BB00EEB44B /* libzip Mac.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -181,8 +196,8 @@
 		3D1F1B0215B3FC5F00DEC23F /* JXZipTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXZipTest.m; sourceTree = "<group>"; };
 		3D1F1B0415B3FC5F00DEC23F /* JXZipTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JXZipTest-Prefix.pch"; sourceTree = "<group>"; };
 		3D1F1B6E15B4085F00DEC23F /* test.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = test.zip; path = libzip/regress/test.zip; sourceTree = SOURCE_ROOT; };
-		3D62A57B148E7D4A00D9B13A /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		3D62A5E5148E7E2D00D9B13A /* Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		3D985583163580EF00EEB44B /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zip.h; path = libzip/lib/zip.h; sourceTree = "<group>"; };
 		3DD9BE351631C1C60094B812 /* libzip.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libzip.xcodeproj; path = libzip/xcode/libzip.xcodeproj; sourceTree = "<group>"; };
 		3DD9BEFA1631C9130094B812 /* zipconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zipconf.h; path = libzip/xcode/zipconf.h; sourceTree = "<group>"; };
 		3DE00EB715CEA7AE00B0C42F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -224,8 +239,7 @@
 		0867D691FE84028FC02AAC07 /* libzip */ = {
 			isa = PBXGroup;
 			children = (
-				3DD9BEFA1631C9130094B812 /* zipconf.h */,
-				3D62A57B148E7D4A00D9B13A /* config.h */,
+				3D985582163580C500EEB44B /* libzip */,
 				3D1F1A2315B32D1700DEC23F /* JXZip */,
 				3D1F1AFB15B3FC5F00DEC23F /* JXZipTest */,
 				089C1665FE841158C02AAC07 /* Resources */,
@@ -344,6 +358,15 @@
 			path = Configs;
 			sourceTree = "<group>";
 		};
+		3D985582163580C500EEB44B /* libzip */ = {
+			isa = PBXGroup;
+			children = (
+				3DD9BEFA1631C9130094B812 /* zipconf.h */,
+				3D985583163580EF00EEB44B /* zip.h */,
+			);
+			name = libzip;
+			sourceTree = "<group>";
+		};
 		3DD9BE361631C1C60094B812 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +402,7 @@
 				3D1F1A8915B32DB900DEC23F /* JXZip.h in Headers */,
 				3D1F1A8B15B32DB900DEC23F /* JXZippedFileInfo.h in Headers */,
 				3DD9BEFB1631C9130094B812 /* zipconf.h in Headers */,
+				3D985584163580EF00EEB44B /* zip.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +417,7 @@
 				3D1F1A2815B32D3C00DEC23F /* Resources */,
 				3D1F1A2A15B32D3C00DEC23F /* Sources */,
 				3D1F1A7E15B32D3C00DEC23F /* Frameworks */,
+				3D98560A163586A800EEB44B /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -594,7 +619,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D1F1A2915B32D3C00DEC23F /* InfoPlist.strings in Resources */,
-				3DD9BECD1631C80B0094B812 /* libzip Mac.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,6 +726,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "JXZip-Info.plist";
 				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = JXZip;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -718,6 +743,7 @@
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = "JXZip-Info.plist";
 				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = JXZip;
 				WRAPPER_EXTENSION = framework;
 			};
