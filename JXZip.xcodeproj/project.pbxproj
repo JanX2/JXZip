@@ -726,7 +726,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "JXZip-Info.plist";
 				INSTALL_PATH = "@rpath";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks";
 				PRODUCT_NAME = JXZip;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -743,7 +743,7 @@
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = "JXZip-Info.plist";
 				INSTALL_PATH = "@rpath";
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks";
 				PRODUCT_NAME = JXZip;
 				WRAPPER_EXTENSION = framework;
 			};
