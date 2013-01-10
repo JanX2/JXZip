@@ -79,7 +79,7 @@ const int kJXCouldNotReplaceZippedFile	= 1007;
 			if (error != NULL) {
 				char errstr[1024];
 				zip_error_to_str(errstr, sizeof(errstr), err, errno);
-				NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"The zip archive “%@” could not be opened: %s", @"Cannot open zip archive"), 
+				NSString *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"The zip archive “%@” could not be opened: %s", @"Cannot open zip archive"),
 												  fileURL, errstr];
 				NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
 							   errorDescription, NSLocalizedDescriptionKey, 
@@ -177,7 +177,7 @@ const int kJXCouldNotReplaceZippedFile	= 1007;
 	
 	if ((zipped_file_index == NSNotFound) || (zipped_file_size == NSNotFound)) {
 		if (error != NULL) {
-			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Invalid zipped file info.", @"Invalid zipped file info")];
+			NSString *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Invalid zipped file info.", @"Invalid zipped file info")];
 			NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
 										 errorDescription, NSLocalizedDescriptionKey, 
 										 nil];
@@ -190,7 +190,7 @@ const int kJXCouldNotReplaceZippedFile	= 1007;
 	struct zip_file *zipped_file = zip_fopen_index(_za, zipped_file_index, (options & ZIP_FL_ENC_UTF_8));
 	if (zipped_file == NULL) {
 		if (error != NULL) {
-			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Could not open zipped file “%@” in archive “%@”: %s", @"Could not open zipped file"), 
+			NSString *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Could not open zipped file “%@” in archive “%@”: %s", @"Could not open zipped file"),
 											  zippedFileInfo.path, self.URL, zip_strerror(_za)];
 			NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
 										 errorDescription, NSLocalizedDescriptionKey, 
@@ -206,7 +206,7 @@ const int kJXCouldNotReplaceZippedFile	= 1007;
 	zip_int64_t n = zip_fread(zipped_file, buf, zipped_file_size);
 	if (n < (zip_int64_t)zipped_file_size) {
 		if (error != NULL) {
-			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Error while reading zipped file “%@” in archive “%@”: %s", @"Error while reading zipped file"), 
+			NSString *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Error while reading zipped file “%@” in archive “%@”: %s", @"Error while reading zipped file"),
 											  zippedFileInfo.path, self.URL, zip_file_strerror(zipped_file)];
 			NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
 										 errorDescription, NSLocalizedDescriptionKey, 
@@ -241,7 +241,7 @@ const int kJXCouldNotReplaceZippedFile	= 1007;
 		|| ((index = zip_file_add(_za, file_path, file_zip_source, (ZIP_FL_ENC_UTF_8))) < 0)
 		) { 
 		if (error != NULL) {
-			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Error while adding zipped file “%@” in archive “%@”: %s", @"Error while adding zipped file"), 
+			NSString *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Error while adding zipped file “%@” in archive “%@”: %s", @"Error while adding zipped file"),
 											  filePath, self.URL, zip_strerror(_za)];
 			NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
 										 errorDescription, NSLocalizedDescriptionKey, 
@@ -267,7 +267,7 @@ const int kJXCouldNotReplaceZippedFile	= 1007;
 		|| (zip_file_replace(_za, zippedFileInfo.index, file_zip_source, 0) < 0)
 		) { 
 		if (error != NULL) {
-			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Error while replacing zipped file “%@” in archive “%@”: %s", @"Error while replacing zipped file"), 
+			NSString *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Error while replacing zipped file “%@” in archive “%@”: %s", @"Error while replacing zipped file"),
 											  zippedFileInfo.path, self.URL, zip_strerror(_za)];
 			NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
 										 errorDescription, NSLocalizedDescriptionKey, 
@@ -292,7 +292,7 @@ const int kJXCouldNotReplaceZippedFile	= 1007;
 	
 	if (zip_close(_za) < 0) {
 		if (error != NULL) {
-			NSDictionary *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"The zip archive “%@” could not be saved: %s", @"Cannot save zip archive"), 
+			NSString *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"The zip archive “%@” could not be saved: %s", @"Cannot save zip archive"),
 											  self.URL, zip_strerror(_za)];
 			NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
 										 errorDescription, NSLocalizedDescriptionKey, 
