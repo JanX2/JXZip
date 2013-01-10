@@ -13,13 +13,13 @@
 
 NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 
-#define kJXCouldNotOpenZip				1001
-#define kJXCouldNotSaveZip				1002
-#define kJXCouldNotOpenZippedFile		1003
-#define kJXCouldNotReadZippedFile		1004
-#define kJXInvalidZippedFileInfo		1005
-#define kJXCouldNotAddZippedFile		1006
-#define kJXCouldNotReplaceZippedFile	1007
+const int kJXCouldNotOpenZip			= 1001;
+const int kJXCouldNotSaveZip			= 1002;
+const int kJXCouldNotOpenZippedFile		= 1003;
+const int kJXCouldNotReadZippedFile		= 1004;
+const int kJXInvalidZippedFileInfo		= 1005;
+const int kJXCouldNotAddZippedFile		= 1006;
+const int kJXCouldNotReplaceZippedFile	= 1007;
 
 @interface JXZippedFileInfo (Protected)
 + (JXZippedFileInfo *)zippedFileInfoWithArchive:(struct zip *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
