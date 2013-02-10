@@ -454,7 +454,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "JXZip" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -701,6 +701,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3D62A5E5148E7E2D00D9B13A /* Base.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				ONLY_ACTIVE_ARCH = YES;
 			};
@@ -710,6 +714,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3D62A5E5148E7E2D00D9B13A /* Base.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 			};
 			name = Release;
 		};
