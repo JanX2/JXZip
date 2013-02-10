@@ -30,7 +30,10 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 	self = [super init];
 	
 	if (self) {
-		if (archive == NULL)  return nil;
+		if (archive == NULL) {
+			[self release];
+			return nil;
+		}
 		
 		options = (options & ZIP_FL_ENC_UTF_8);
 		
