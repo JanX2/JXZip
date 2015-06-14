@@ -59,9 +59,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 					errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Could not access file info for file %lu in zipped file: %s", @"Cannot access file info in zipped file"),
 										(unsigned long)index, zip_strerror(archive)];
 				}
-				NSDictionary *errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
-											 errorDescription, NSLocalizedDescriptionKey,
-											 nil];
+				NSDictionary *errorDetail = @{NSLocalizedDescriptionKey: errorDescription};
 				*error = [NSError errorWithDomain:JXZippedFileInfoErrorDomain code:kJXCouldNotAccessZippedFileInfo userInfo:errorDetail];
 			}
 			
@@ -123,7 +121,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 {
 	if (_file_info.valid & ZIP_STAT_NAME) {
 		// FIXME: We assume the file names are UTF-8.
-		return [NSString stringWithCString:_file_info.name encoding:NSUTF8StringEncoding];
+		return @(_file_info.name);
 	}
 	else {
 		return nil;
