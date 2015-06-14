@@ -39,9 +39,6 @@ const int kJXCouldNotReplaceZippedFile	= 1007;
 	struct zip *_za;
 }
 
-@synthesize URL = _URL;
-@synthesize za = _za;
-
 + (JXZip *)zipWithURL:(NSURL *)fileURL error:(NSError **)error;
 {
 	return [[[JXZip alloc] initWithURL:fileURL options:0 error:error] autorelease];
