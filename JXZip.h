@@ -65,6 +65,9 @@ typedef int JXZipOptions;
 
 @end
 
+
+FOUNDATION_EXTERN NSString * const JXZipErrorDomain;
+
 FOUNDATION_EXTERN const int kJXCouldNotOpenZip;
 FOUNDATION_EXTERN const int kJXCouldNotSaveZip;
 FOUNDATION_EXTERN const int kJXCouldNotOpenZippedFile;
