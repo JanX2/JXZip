@@ -11,6 +11,14 @@
 #import "JXZippedFileInfo.h"
 
 enum {
+	JXZipFileCreate =						1,		// Create the archive if it does not exist.
+	JXZipFileExclusive =					2,		// Error if archive already exists.
+	JXZipFileStricterConsistencyChecks =	4,		// Perform additional stricter consistency checks on the archive, and error if they fail.
+	JXZipFileTruncate =						8,		// If archive exists, ignore its current contents. In other words, handle it the same way as an empty archive.
+};
+typedef int JXZipFileOptions;
+
+enum {
 	JXZipCaseInsensitivePathLookup =		1,		// Ignore case on path lookup
 	
 	JXZipReadCompressedData =				4,		// Read compressed data
@@ -33,7 +41,10 @@ typedef int JXZipOptions;
 @property (nonatomic, readonly, retain) NSURL *URL;
 
 + (JXZip *)zipWithURL:(NSURL *)zipFileURL error:(NSError **)error;
++ (JXZip *)zipWithURL:(NSURL *)fileURL options:(JXZipFileOptions)options error:(NSError **)error;
+
 - (JXZip *)initWithURL:(NSURL *)zipFileURL error:(NSError **)error;
+- (JXZip *)initWithURL:(NSURL *)fileURL options:(JXZipFileOptions)options error:(NSError **)error;
 
 - (NSUInteger)fileCount;
 - (JXZippedFileInfo *)zippedFileInfoForIndex:(NSUInteger)index error:(NSError **)error;

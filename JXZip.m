@@ -46,7 +46,7 @@ const int kJXCouldNotReplaceZippedFile	= 1007;
 	return [[[JXZip alloc] initWithURL:fileURL options:0 error:error] autorelease];
 }
 
-+ (JXZip *)zipWithURL:(NSURL *)fileURL options:(JXZipOptions)options error:(NSError **)error;
++ (JXZip *)zipWithURL:(NSURL *)fileURL options:(JXZipFileOptions)options error:(NSError **)error;
 {
 	return [[[JXZip alloc] initWithURL:fileURL options:options error:error] autorelease];
 }
@@ -56,7 +56,7 @@ const int kJXCouldNotReplaceZippedFile	= 1007;
 	return [self initWithURL:fileURL options:0 error:error];
 }
 
-- (JXZip *)initWithURL:(NSURL *)fileURL options:(JXZipOptions)options error:(NSError **)error;
+- (JXZip *)initWithURL:(NSURL *)fileURL options:(JXZipFileOptions)options error:(NSError **)error;
 {
 	self = [super init];
 	
