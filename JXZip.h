@@ -65,10 +65,10 @@ typedef int JXZipOptions;
 
 @end
 
-extern const int kJXCouldNotOpenZip;
-extern const int kJXCouldNotSaveZip;
-extern const int kJXCouldNotOpenZippedFile;
-extern const int kJXCouldNotReadZippedFile;
-extern const int kJXInvalidZippedFileInfo;
-extern const int kJXCouldNotAddZippedFile;
-extern const int kJXCouldNotReplaceZippedFile;
+FOUNDATION_EXTERN const int kJXCouldNotOpenZip;
+FOUNDATION_EXTERN const int kJXCouldNotSaveZip;
+FOUNDATION_EXTERN const int kJXCouldNotOpenZippedFile;
+FOUNDATION_EXTERN const int kJXCouldNotReadZippedFile;
+FOUNDATION_EXTERN const int kJXInvalidZippedFileInfo;
+FOUNDATION_EXTERN const int kJXCouldNotAddZippedFile;
+FOUNDATION_EXTERN const int kJXCouldNotReplaceZippedFile;
