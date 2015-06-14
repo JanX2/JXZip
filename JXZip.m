@@ -9,7 +9,9 @@
 #import "JXZip.h"
 
 #import "JXZippedFileInfo.h"
-#import <libzip Mac/zip.h>
+#import <libzip/zip.h>
+
+#define ZIP_DISABLE_DEPRECATED	1
 
 NSString * const	JXZipErrorDomain						= @"de.geheimwerk.Error.JXZip";
 
@@ -70,7 +72,7 @@ const int kJXCouldNotReplaceZippedFile	= 1007;
 		const char * zip_file_path = [[fileURL path] UTF8String];
 		int err;
 		
-		_za = zip_open(zip_file_path, (options & ZIP_FL_ENC_UTF_8), &err);
+		_za = zip_open(zip_file_path, options, &err);
 		
 		if (_za == NULL) {
 			if (error != NULL) {

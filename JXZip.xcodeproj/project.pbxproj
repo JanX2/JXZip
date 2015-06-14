@@ -17,10 +17,8 @@
 		3D1F1B0315B3FC5F00DEC23F /* JXZipTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F1B0215B3FC5F00DEC23F /* JXZipTest.m */; };
 		3D1F1B6F15B4086000DEC23F /* test.zip in Resources */ = {isa = PBXBuildFile; fileRef = 3D1F1B6E15B4085F00DEC23F /* test.zip */; };
 		3D1F1B8B15B40DB000DEC23F /* JXZip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1F1A8315B32D3C00DEC23F /* JXZip.framework */; };
-		3D985584163580EF00EEB44B /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D985583163580EF00EEB44B /* zip.h */; };
-		3D985620163586BB00EEB44B /* libzip Mac.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD9BE641631C1C70094B812 /* libzip Mac.framework */; };
-		3DD9BECC1631C7D80094B812 /* libzip Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD9BE641631C1C70094B812 /* libzip Mac.framework */; };
-		3DD9BEFB1631C9130094B812 /* zipconf.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DD9BEFA1631C9130094B812 /* zipconf.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D985620163586BB00EEB44B /* libzip.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD9BE641631C1C70094B812 /* libzip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3DD9BECC1631C7D80094B812 /* libzip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD9BE641631C1C70094B812 /* libzip.framework */; };
 		3DE00EB815CEA7AE00B0C42F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE00EB715CEA7AE00B0C42F /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,20 +51,6 @@
 			remoteGlobalIDString = 4B01D71315B2F4EB002D5007;
 			remoteInfo = zipcmp;
 		};
-		3DD9BE691631C1C70094B812 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4B01D71E15B2F4F7002D5007;
-			remoteInfo = ziptorrent;
-		};
-		3DD9BE6B1631C1C70094B812 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4BACD5A415BC2D4C00920691;
-			remoteInfo = add_from_buffer;
-		};
 		3DD9BE6D1631C1C70094B812 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
@@ -95,55 +79,6 @@
 			remoteGlobalIDString = 4BACD58915BC2CEA00920691;
 			remoteInfo = modify;
 		};
-		3DD9BE751631C1C70094B812 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4BACD5EE15BC2F6600920691;
-			remoteInfo = name_locate;
-		};
-		3DD9BE771631C1C70094B812 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4BACD5FD15BC2F9500920691;
-			remoteInfo = set_comment_all;
-		};
-		3DD9BE791631C1C70094B812 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4BACD60A15BC2FA300920691;
-			remoteInfo = set_comment_localonly;
-		};
-		3DD9BE7B1631C1C70094B812 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4BACD61715BC2FA900920691;
-			remoteInfo = set_comment_removeglobal;
-		};
-		3DD9BE7D1631C1C70094B812 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4BACD62415BC2FAC00920691;
-			remoteInfo = set_comment_revert;
-		};
-		3DD9BE7F1631C1C70094B812 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4BACD63115BC2FAE00920691;
-			remoteInfo = set_compression;
-		};
-		3DD9BE811631C1C70094B812 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4BACD64215BC2FEF00920691;
-			remoteInfo = stat_index;
-		};
 		3DD9BE831631C1C70094B812 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
@@ -158,6 +93,13 @@
 			remoteGlobalIDString = 4B01D68A15B2F3F1002D5007;
 			remoteInfo = "libzip Mac";
 		};
+		3DFCAAE71B2E3A74003B038A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4BD6CB6C19E71CD100710654;
+			remoteInfo = hole;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -167,7 +109,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3D985620163586BB00EEB44B /* libzip Mac.framework in Copy Frameworks */,
+				3D985620163586BB00EEB44B /* libzip.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,9 +139,7 @@
 		3D1F1B0415B3FC5F00DEC23F /* JXZipTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JXZipTest-Prefix.pch"; sourceTree = "<group>"; };
 		3D1F1B6E15B4085F00DEC23F /* test.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = test.zip; path = libzip/regress/test.zip; sourceTree = SOURCE_ROOT; };
 		3D62A5E5148E7E2D00D9B13A /* Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
-		3D985583163580EF00EEB44B /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zip.h; path = libzip/lib/zip.h; sourceTree = "<group>"; };
 		3DD9BE351631C1C60094B812 /* libzip.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libzip.xcodeproj; path = libzip/xcode/libzip.xcodeproj; sourceTree = "<group>"; };
-		3DD9BEFA1631C9130094B812 /* zipconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zipconf.h; path = libzip/xcode/zipconf.h; sourceTree = "<group>"; };
 		3DE00EB715CEA7AE00B0C42F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -210,7 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DD9BECC1631C7D80094B812 /* libzip Mac.framework in Frameworks */,
+				3DD9BECC1631C7D80094B812 /* libzip.framework in Frameworks */,
 				3DE00EB815CEA7AE00B0C42F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,7 +179,6 @@
 		0867D691FE84028FC02AAC07 /* libzip */ = {
 			isa = PBXGroup;
 			children = (
-				3D985582163580C500EEB44B /* libzip */,
 				3D1F1A2315B32D1700DEC23F /* JXZip */,
 				3D1F1AFB15B3FC5F00DEC23F /* JXZipTest */,
 				089C1665FE841158C02AAC07 /* Resources */,
@@ -358,35 +297,18 @@
 			path = Configs;
 			sourceTree = "<group>";
 		};
-		3D985582163580C500EEB44B /* libzip */ = {
-			isa = PBXGroup;
-			children = (
-				3DD9BEFA1631C9130094B812 /* zipconf.h */,
-				3D985583163580EF00EEB44B /* zip.h */,
-			);
-			name = libzip;
-			sourceTree = "<group>";
-		};
 		3DD9BE361631C1C60094B812 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3DD9BE621631C1C70094B812 /* libzip.framework */,
-				3DD9BE641631C1C70094B812 /* libzip Mac.framework */,
+				3DD9BE621631C1C70094B812 /* libzip_iOS.framework */,
+				3DD9BE641631C1C70094B812 /* libzip.framework */,
 				3DD9BE661631C1C70094B812 /* zipmerge */,
 				3DD9BE681631C1C70094B812 /* zipcmp */,
-				3DD9BE6A1631C1C70094B812 /* ziptorrent */,
-				3DD9BE6C1631C1C70094B812 /* add_from_buffer */,
 				3DD9BE6E1631C1C70094B812 /* add_from_filep */,
 				3DD9BE701631C1C70094B812 /* fopen_unchanged */,
 				3DD9BE721631C1C70094B812 /* fread */,
+				3DFCAAE81B2E3A74003B038A /* hole */,
 				3DD9BE741631C1C70094B812 /* modify */,
-				3DD9BE761631C1C70094B812 /* name_locate */,
-				3DD9BE781631C1C70094B812 /* set_comment_all */,
-				3DD9BE7A1631C1C70094B812 /* set_comment_localonly */,
-				3DD9BE7C1631C1C70094B812 /* set_comment_removeglobal */,
-				3DD9BE7E1631C1C70094B812 /* set_comment_revert */,
-				3DD9BE801631C1C70094B812 /* set_compression */,
-				3DD9BE821631C1C70094B812 /* stat_index */,
 				3DD9BE841631C1C70094B812 /* tryopen */,
 			);
 			name = Products;
@@ -401,8 +323,6 @@
 			files = (
 				3D1F1A8915B32DB900DEC23F /* JXZip.h in Headers */,
 				3D1F1A8B15B32DB900DEC23F /* JXZippedFileInfo.h in Headers */,
-				3DD9BEFB1631C9130094B812 /* zipconf.h in Headers */,
-				3D985584163580EF00EEB44B /* zip.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,7 +366,7 @@
 			name = JXZipTest;
 			productName = JXZipTest;
 			productReference = 3D1F1AF115B3FC5F00DEC23F /* JXZipTest.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -454,7 +374,8 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastTestingUpgradeCheck = 0610;
+				LastUpgradeCheck = 0630;
 			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "JXZip" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -485,17 +406,17 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		3DD9BE621631C1C70094B812 /* libzip.framework */ = {
+		3DD9BE621631C1C70094B812 /* libzip_iOS.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = libzip.framework;
+			path = libzip_iOS.framework;
 			remoteRef = 3DD9BE611631C1C70094B812 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		3DD9BE641631C1C70094B812 /* libzip Mac.framework */ = {
+		3DD9BE641631C1C70094B812 /* libzip.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = "libzip Mac.framework";
+			path = libzip.framework;
 			remoteRef = 3DD9BE631631C1C70094B812 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -511,20 +432,6 @@
 			fileType = "compiled.mach-o.executable";
 			path = zipcmp;
 			remoteRef = 3DD9BE671631C1C70094B812 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DD9BE6A1631C1C70094B812 /* ziptorrent */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = ziptorrent;
-			remoteRef = 3DD9BE691631C1C70094B812 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DD9BE6C1631C1C70094B812 /* add_from_buffer */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = add_from_buffer;
-			remoteRef = 3DD9BE6B1631C1C70094B812 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		3DD9BE6E1631C1C70094B812 /* add_from_filep */ = {
@@ -555,60 +462,18 @@
 			remoteRef = 3DD9BE731631C1C70094B812 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		3DD9BE761631C1C70094B812 /* name_locate */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = name_locate;
-			remoteRef = 3DD9BE751631C1C70094B812 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DD9BE781631C1C70094B812 /* set_comment_all */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = set_comment_all;
-			remoteRef = 3DD9BE771631C1C70094B812 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DD9BE7A1631C1C70094B812 /* set_comment_localonly */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = set_comment_localonly;
-			remoteRef = 3DD9BE791631C1C70094B812 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DD9BE7C1631C1C70094B812 /* set_comment_removeglobal */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = set_comment_removeglobal;
-			remoteRef = 3DD9BE7B1631C1C70094B812 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DD9BE7E1631C1C70094B812 /* set_comment_revert */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = set_comment_revert;
-			remoteRef = 3DD9BE7D1631C1C70094B812 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DD9BE801631C1C70094B812 /* set_compression */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = set_compression;
-			remoteRef = 3DD9BE7F1631C1C70094B812 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DD9BE821631C1C70094B812 /* stat_index */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = stat_index;
-			remoteRef = 3DD9BE811631C1C70094B812 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		3DD9BE841631C1C70094B812 /* tryopen */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
 			path = tryopen;
 			remoteRef = 3DD9BE831631C1C70094B812 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3DFCAAE81B2E3A74003B038A /* hole */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = hole;
+			remoteRef = 3DFCAAE71B2E3A74003B038A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -701,11 +566,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3D62A5E5148E7E2D00D9B13A /* Base.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
@@ -714,10 +585,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3D62A5E5148E7E2D00D9B13A /* Base.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 			};
 			name = Release;
 		};
@@ -736,6 +613,7 @@
 				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks";
 				PRODUCT_NAME = JXZip;
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -753,6 +631,7 @@
 				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks";
 				PRODUCT_NAME = JXZip;
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
