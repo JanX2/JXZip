@@ -39,7 +39,7 @@ static JXZip *zipArchive;
 {
 	NSUInteger fileCount = zipArchive.fileCount;
 	
-	STAssertEquals(fileCount, 3LU, @"File count differs from the expected value. ");
+	XCTAssertEqual(fileCount, 3LU, @"File count differs from the expected value. ");
 }
 
 - (void)testEnumerateFiles
@@ -53,15 +53,15 @@ static JXZip *zipArchive;
 	for (NSUInteger i = 0; i < fileCount; i++) {
 		zippedFileInfo = [zipArchive zippedFileInfoForIndex:i error:&error];
 		
-		STAssertNotNil(zippedFileInfo,
-					   [NSString stringWithFormat:@"Couldn’t access file %lu in %@. ", (unsigned long)i, zipArchive.URL]);
+		XCTAssertNotNil(zippedFileInfo,
+						@"Couldn’t access file %lu in %@. ", (unsigned long)i, zipArchive.URL);
 		
 		if (zippedFileInfo == nil)  continue;
 		
 		filePath = zippedFileInfo.path;
 		
-		STAssertNotNil(filePath,
-					   [NSString stringWithFormat:@"File path for file %lu in %@ was nil. ", (unsigned long)i, zipArchive.URL]);
+		XCTAssertNotNil(filePath,
+						@"File path for file %lu in %@ was nil. ", (unsigned long)i, zipArchive.URL);
 #if DEBUG
 		puts([filePath UTF8String]);
 #endif

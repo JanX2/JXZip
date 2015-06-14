@@ -12,7 +12,6 @@
 		3D1F1A8A15B32DB900DEC23F /* JXZip.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F1A8615B32DB900DEC23F /* JXZip.m */; };
 		3D1F1A8B15B32DB900DEC23F /* JXZippedFileInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D1F1A8715B32DB900DEC23F /* JXZippedFileInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D1F1A8C15B32DB900DEC23F /* JXZippedFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F1A8815B32DB900DEC23F /* JXZippedFileInfo.m */; };
-		3D1F1AF415B3FC5F00DEC23F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1F1AF315B3FC5F00DEC23F /* SenTestingKit.framework */; };
 		3D1F1B0015B3FC5F00DEC23F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D1F1AFE15B3FC5F00DEC23F /* InfoPlist.strings */; };
 		3D1F1B0315B3FC5F00DEC23F /* JXZipTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F1B0215B3FC5F00DEC23F /* JXZipTest.m */; };
 		3D1F1B6F15B4086000DEC23F /* test.zip in Resources */ = {isa = PBXBuildFile; fileRef = 3D1F1B6E15B4085F00DEC23F /* test.zip */; };
@@ -127,8 +126,7 @@
 		3D1F1A8615B32DB900DEC23F /* JXZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXZip.m; sourceTree = SOURCE_ROOT; };
 		3D1F1A8715B32DB900DEC23F /* JXZippedFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXZippedFileInfo.h; sourceTree = SOURCE_ROOT; };
 		3D1F1A8815B32DB900DEC23F /* JXZippedFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXZippedFileInfo.m; sourceTree = SOURCE_ROOT; };
-		3D1F1AF115B3FC5F00DEC23F /* JXZipTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JXZipTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D1F1AF315B3FC5F00DEC23F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		3D1F1AF115B3FC5F00DEC23F /* JXZipTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JXZipTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D1F1AF815B3FC5F00DEC23F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		3D1F1AF915B3FC5F00DEC23F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3D1F1AFA15B3FC5F00DEC23F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -160,7 +158,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D1F1B8B15B40DB000DEC23F /* JXZip.framework in Frameworks */,
-				3D1F1AF415B3FC5F00DEC23F /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,7 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				3D1F1A8315B32D3C00DEC23F /* JXZip.framework */,
-				3D1F1AF115B3FC5F00DEC23F /* JXZipTest.octest */,
+				3D1F1AF115B3FC5F00DEC23F /* JXZipTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -244,7 +241,6 @@
 			children = (
 				3DD9BE351631C1C60094B812 /* libzip.xcodeproj */,
 				3DE00EB715CEA7AE00B0C42F /* Foundation.framework */,
-				3D1F1AF315B3FC5F00DEC23F /* SenTestingKit.framework */,
 				3D1F1AF715B3FC5F00DEC23F /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -365,8 +361,8 @@
 			);
 			name = JXZipTest;
 			productName = JXZipTest;
-			productReference = 3D1F1AF115B3FC5F00DEC23F /* JXZipTest.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
+			productReference = 3D1F1AF115B3FC5F00DEC23F /* JXZipTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -374,7 +370,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastTestingUpgradeCheck = 0610;
+				LastTestingUpgradeCheck = 0630;
 				LastUpgradeCheck = 0630;
 			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "JXZip" */;
@@ -642,7 +638,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JXZipTest/JXZipTest-Prefix.pch";
@@ -653,7 +648,6 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "JXZipTest/JXZipTest-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -664,12 +658,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JXZipTest/JXZipTest-Prefix.pch";
 				INFOPLIST_FILE = "JXZipTest/JXZipTest-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

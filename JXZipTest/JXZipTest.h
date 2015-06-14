@@ -6,8 +6,8 @@
 //
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface JXZipTest : SenTestCase
+@interface JXZipTest : XCTestCase
 
 @end
