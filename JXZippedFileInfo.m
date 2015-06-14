@@ -37,7 +37,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 		
 		options = (options & ZIP_FL_ENC_UTF_8);
 		
-		int idx; // FIXME: libzip shouldn’t use int, it should use zip_int64_t
+		zip_int64_t idx;
 		const char *file_path = NULL;
 		
 		if (filePath != nil) {
@@ -50,7 +50,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 		
 		if ((idx < 0) || (zip_stat_index(archive, (zip_uint64_t)idx, options, &_file_info) < 0)) {
 			if (error != NULL) {
-				NSDictionary *errorDescription;
+				NSString *errorDescription;
 				if (filePath != nil) {
 					errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Could not access file info for “%@” in zipped file: %s", @"Cannot access file info in zipped file"),
 										filePath, zip_strerror(archive)];
