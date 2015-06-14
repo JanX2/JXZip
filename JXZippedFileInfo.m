@@ -18,10 +18,10 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 
 
 @implementation JXZippedFileInfo {
-	struct zip_stat	_file_info;
+	zip_stat_t	_file_info;
 }
 
-- (JXZippedFileInfo *)initFileInfoWithArchive:(struct zip *)archive
+- (JXZippedFileInfo *)initFileInfoWithArchive:(zip_t *)archive
 										index:(NSUInteger)index
 									 filePath:(NSString *)filePath
 									  options:(JXZipOptions)options
@@ -71,7 +71,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 	return self;
 }
 
-- (JXZippedFileInfo *)initFileInfoWithArchive:(struct zip *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
+- (JXZippedFileInfo *)initFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
 {
 	if (filePath == nil)  return nil;
 	else  return [self initFileInfoWithArchive:archive
@@ -81,7 +81,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 										 error:error];
 }
 
-+ (JXZippedFileInfo *)zippedFileInfoWithArchive:(struct zip *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
++ (JXZippedFileInfo *)zippedFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
 {
 	return [[[JXZippedFileInfo alloc] initFileInfoWithArchive:archive
 														index:0
@@ -90,7 +90,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 														error:error] autorelease];
 }
 
-- (JXZippedFileInfo *)initFileInfoWithArchive:(struct zip *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
+- (JXZippedFileInfo *)initFileInfoWithArchive:(zip_t *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
 {
 	return [self initFileInfoWithArchive:archive
 								   index:index
@@ -99,7 +99,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 								   error:error];
 }
 
-+ (JXZippedFileInfo *)zippedFileInfoWithArchive:(struct zip *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
++ (JXZippedFileInfo *)zippedFileInfoWithArchive:(zip_t *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
 {
 	return [[[JXZippedFileInfo alloc] initFileInfoWithArchive:archive
 														index:index

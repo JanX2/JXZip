@@ -24,21 +24,21 @@ const int kJXCouldNotAddZippedFile		= 1006;
 const int kJXCouldNotReplaceZippedFile	= 1007;
 
 @interface JXZippedFileInfo (Protected)
-+ (JXZippedFileInfo *)zippedFileInfoWithArchive:(struct zip *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
-- (JXZippedFileInfo *)initFileInfoWithArchive:(struct zip *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
++ (JXZippedFileInfo *)zippedFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
+- (JXZippedFileInfo *)initFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
 
-+ (JXZippedFileInfo *)zippedFileInfoWithArchive:(struct zip *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
-- (JXZippedFileInfo *)initFileInfoWithArchive:(struct zip *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
++ (JXZippedFileInfo *)zippedFileInfoWithArchive:(zip_t *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
+- (JXZippedFileInfo *)initFileInfoWithArchive:(zip_t *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
 @end
 
 @interface JXZip ()
 @property (nonatomic, readwrite, retain) NSURL *URL;
-@property (nonatomic, readwrite, assign) struct zip *za;
+@property (nonatomic, readwrite, assign) zip_t *za;
 @end
 
 @implementation JXZip {
 	NSURL *_URL;
-	struct zip *_za;
+	zip_t *_za;
 }
 
 + (JXZip *)zipWithURL:(NSURL *)fileURL error:(NSError **)error;
@@ -182,7 +182,7 @@ const int kJXCouldNotReplaceZippedFile	= 1007;
 		return nil;
 	}
 
-	struct zip_file *zipped_file = zip_fopen_index(_za, zipped_file_index, (options & ZIP_FL_ENC_UTF_8));
+	zip_file_t *zipped_file = zip_fopen_index(_za, zipped_file_index, (options & ZIP_FL_ENC_UTF_8));
 	if (zipped_file == NULL) {
 		if (error != NULL) {
 			NSString *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Could not open zipped file “%@” in archive “%@”: %s", @"Could not open zipped file"),
@@ -225,7 +225,7 @@ const int kJXCouldNotReplaceZippedFile	= 1007;
 	// CHANGEME: Passing the index back might be helpful
 	
 	const char * file_path = [filePath UTF8String];
-	struct zip_source *file_zip_source = zip_source_buffer(_za, [data bytes], [data length], 0);
+	zip_source_t *file_zip_source = zip_source_buffer(_za, [data bytes], [data length], 0);
 	zip_int64_t index;
 	
 	if ((file_zip_source == NULL)
@@ -250,7 +250,7 @@ const int kJXCouldNotReplaceZippedFile	= 1007;
 {
 	if ((zippedFileInfo == nil) || (data == nil))  return NO;
 	
-	struct zip_source *file_zip_source = zip_source_buffer(_za, [data bytes], [data length], 0);
+	zip_source_t *file_zip_source = zip_source_buffer(_za, [data bytes], [data length], 0);
 	
 	if ((file_zip_source == NULL)
 		|| (zip_file_replace(_za, zippedFileInfo.index, file_zip_source, 0) < 0)
