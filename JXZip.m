@@ -77,7 +77,7 @@ NSString * errorStringForZipErrorCode(int error_code) {
 		self.URL = fileURL;
 		
 		// NOTE: We could rewrite this using file descriptors.
-		const char * zip_file_path = [[fileURL path] UTF8String];
+		const char *zip_file_path = [[fileURL path] UTF8String];
 		int err;
 		
 		_za = zip_open(zip_file_path, options, &err);
