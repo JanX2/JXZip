@@ -33,6 +33,14 @@ NSString * errorStringForZipErrorCode(int error_code) {
 	return errorString;
 }
 
+NSString * errorStringForZipArchive(zip_t *za) {
+	zip_error_t *zip_error = zip_get_error(za);
+	const char *error_string = zip_error_strerror(zip_error);
+	NSString *errorString = @(error_string);
+	
+	return errorString;
+}
+
 @interface JXZippedFileInfo (Protected)
 + (instancetype)zippedFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
 - (instancetype)initFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
@@ -192,8 +200,9 @@ NSString * errorStringForZipErrorCode(int error_code) {
 	zip_file_t *zipped_file = zip_fopen_index(_za, zipped_file_index, (options & ZIP_FL_ENC_UTF_8));
 	if (zipped_file == NULL) {
 		if (error != NULL) {
+			NSString *errorString = errorStringForZipArchive(_za);
 			NSString *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Could not open zipped file “%@” in archive “%@”: %s", @"Could not open zipped file"),
-											  zippedFileInfo.path, self.URL, zip_strerror(_za)];
+											  zippedFileInfo.path, self.URL, errorString];
 			NSDictionary *errorDetail = @{NSLocalizedDescriptionKey: errorDescription};
 			*error = [NSError errorWithDomain:JXZipErrorDomain code:kJXCouldNotOpenZippedFile userInfo:errorDetail];
 		}
@@ -239,8 +248,9 @@ NSString * errorStringForZipErrorCode(int error_code) {
 		|| ((index = zip_file_add(_za, file_path, file_zip_source, (ZIP_FL_ENC_UTF_8))) < 0)
 		) { 
 		if (error != NULL) {
+			NSString *errorString = errorStringForZipArchive(_za);
 			NSString *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Error while adding zipped file “%@” in archive “%@”: %s", @"Error while adding zipped file"),
-											  filePath, self.URL, zip_strerror(_za)];
+											  filePath, self.URL, errorString];
 			NSDictionary *errorDetail = @{NSLocalizedDescriptionKey: errorDescription};
 			*error = [NSError errorWithDomain:JXZipErrorDomain code:kJXCouldNotAddZippedFile userInfo:errorDetail];
 		}
@@ -263,8 +273,9 @@ NSString * errorStringForZipErrorCode(int error_code) {
 		|| (zip_file_replace(_za, zippedFileInfo.index, file_zip_source, 0) < 0)
 		) { 
 		if (error != NULL) {
+			NSString *errorString = errorStringForZipArchive(_za);
 			NSString *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"Error while replacing zipped file “%@” in archive “%@”: %s", @"Error while replacing zipped file"),
-											  zippedFileInfo.path, self.URL, zip_strerror(_za)];
+											  zippedFileInfo.path, self.URL, errorString];
 			NSDictionary *errorDetail = @{NSLocalizedDescriptionKey: errorDescription};
 			*error = [NSError errorWithDomain:JXZipErrorDomain code:kJXCouldNotReplaceZippedFile userInfo:errorDetail];
 		}
@@ -286,8 +297,9 @@ NSString * errorStringForZipErrorCode(int error_code) {
 	
 	if (zip_close(_za) < 0) {
 		if (error != NULL) {
-			NSString *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"The zip archive “%@” could not be saved: %s", @"Cannot save zip archive"),
-											  self.URL, zip_strerror(_za)];
+			NSString *errorString = errorStringForZipArchive(_za);
+			NSString *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"The zip archive “%@” could not be saved: %@", @"Cannot save zip archive"),
+											  self.URL, errorString];
 			NSDictionary *errorDetail = @{NSLocalizedDescriptionKey: errorDescription};
 			*error = [NSError errorWithDomain:JXZipErrorDomain code:kJXCouldNotSaveZip userInfo:errorDetail];
 		}
