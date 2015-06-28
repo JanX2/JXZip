@@ -101,7 +101,7 @@ NSString * errorStringForZipErrorCode(int error_code) {
 }
 
 
-- (void) dealloc
+- (void)dealloc
 {
 	self.URL = nil;
 	
