@@ -34,11 +34,11 @@ NSString * errorStringForZipErrorCode(int error_code) {
 }
 
 @interface JXZippedFileInfo (Protected)
-+ (JXZippedFileInfo *)zippedFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
-- (JXZippedFileInfo *)initFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
++ (instancetype)zippedFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
+- (instancetype)initFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
 
-+ (JXZippedFileInfo *)zippedFileInfoWithArchive:(zip_t *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
-- (JXZippedFileInfo *)initFileInfoWithArchive:(zip_t *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
++ (instancetype)zippedFileInfoWithArchive:(zip_t *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
+- (instancetype)initFileInfoWithArchive:(zip_t *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
 @end
 
 @interface JXZip ()
@@ -51,22 +51,22 @@ NSString * errorStringForZipErrorCode(int error_code) {
 	zip_t *_za;
 }
 
-+ (JXZip *)zipWithURL:(NSURL *)fileURL error:(NSError **)error;
++ (instancetype)zipWithURL:(NSURL *)fileURL error:(NSError **)error;
 {
 	return [[[JXZip alloc] initWithURL:fileURL options:0 error:error] autorelease];
 }
 
-+ (JXZip *)zipWithURL:(NSURL *)fileURL options:(JXZipFileOptions)options error:(NSError **)error;
++ (instancetype)zipWithURL:(NSURL *)fileURL options:(JXZipFileOptions)options error:(NSError **)error;
 {
 	return [[[JXZip alloc] initWithURL:fileURL options:options error:error] autorelease];
 }
 
-- (JXZip *)initWithURL:(NSURL *)fileURL error:(NSError **)error;
+- (instancetype)initWithURL:(NSURL *)fileURL error:(NSError **)error;
 {
 	return [self initWithURL:fileURL options:0 error:error];
 }
 
-- (JXZip *)initWithURL:(NSURL *)fileURL options:(JXZipFileOptions)options error:(NSError **)error;
+- (instancetype)initWithURL:(NSURL *)fileURL options:(JXZipFileOptions)options error:(NSError **)error;
 {
 	self = [super init];
 	
@@ -101,7 +101,6 @@ NSString * errorStringForZipErrorCode(int error_code) {
 	
 	return self;
 }
-
 
 
 - (void) dealloc

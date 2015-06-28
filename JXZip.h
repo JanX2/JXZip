@@ -42,11 +42,12 @@ typedef int JXZipOptions;
 @property (nonatomic, readonly) NSUInteger fileCount;
 
 // From NSURL.
-+ (JXZip *)zipWithURL:(NSURL *)fileURL error:(NSError **)error;
-+ (JXZip *)zipWithURL:(NSURL *)fileURL options:(JXZipFileOptions)options error:(NSError **)error;
++ (instancetype)zipWithURL:(NSURL *)fileURL error:(NSError **)error;
++ (instancetype)zipWithURL:(NSURL *)fileURL options:(JXZipFileOptions)options error:(NSError **)error;
 
-- (JXZip *)initWithURL:(NSURL *)fileURL error:(NSError **)error;
-- (JXZip *)initWithURL:(NSURL *)fileURL options:(JXZipFileOptions)options error:(NSError **)error;
+- (instancetype)initWithURL:(NSURL *)fileURL error:(NSError **)error;
+- (instancetype)initWithURL:(NSURL *)fileURL options:(JXZipFileOptions)options error:(NSError **)error;
+
 
 // File access.
 - (JXZippedFileInfo *)zippedFileInfoForIndex:(NSUInteger)index error:(NSError **)error;
