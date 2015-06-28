@@ -23,6 +23,16 @@ const int kJXInvalidZippedFileInfo		= 1005;
 const int kJXCouldNotAddZippedFile		= 1006;
 const int kJXCouldNotReplaceZippedFile	= 1007;
 
+NSString * errorStringForZipErrorCode(int error_code) {
+	zip_error_t zip_error;
+	zip_error_init_with_code(&zip_error, error_code);
+	const char *error_string = zip_error_strerror(&zip_error);
+	NSString *errorString = @(error_string);
+	zip_error_fini(&zip_error);
+	
+	return errorString;
+}
+
 @interface JXZippedFileInfo (Protected)
 + (JXZippedFileInfo *)zippedFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
 - (JXZippedFileInfo *)initFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
@@ -76,10 +86,10 @@ const int kJXCouldNotReplaceZippedFile	= 1007;
 		
 		if (_za == NULL) {
 			if (error != NULL) {
-				char errstr[1024];
-				zip_error_to_str(errstr, sizeof(errstr), err, errno);
-				NSString *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"The zip archive “%@” could not be opened: %s", @"Cannot open zip archive"),
-												  fileURL, errstr];
+				NSString *errorString = errorStringForZipErrorCode(err);
+
+				NSString *errorDescription = [NSString stringWithFormat:NSLocalizedString(@"The zip archive “%@” could not be opened: %@ (%d)", @"Cannot open zip archive"),
+												  fileURL, errorString, err];
 				NSDictionary *errorDetail = @{NSLocalizedDescriptionKey: errorDescription};
 				*error = [NSError errorWithDomain:JXZipErrorDomain code:kJXCouldNotOpenZip userInfo:errorDetail];
 			}
