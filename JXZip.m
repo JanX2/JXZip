@@ -47,8 +47,6 @@ NSString * errorStringForZipErrorCode(int error_code) {
 @end
 
 @implementation JXZip {
-	NSURL *_URL;
-	zip_t *_za;
 }
 
 + (instancetype)zipWithURL:(NSURL *)fileURL error:(NSError **)error;
