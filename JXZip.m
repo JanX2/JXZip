@@ -23,11 +23,17 @@ const int kJXInvalidZippedFileInfo		= 1005;
 const int kJXCouldNotAddZippedFile		= 1006;
 const int kJXCouldNotReplaceZippedFile	= 1007;
 
+NSString * errorStringForZipError(zip_error_t *zip_error) {
+	const char *error_string = zip_error_strerror(zip_error);
+	NSString *errorString = @(error_string);
+	
+	return errorString;
+}
+
 NSString * errorStringForZipErrorCode(int error_code) {
 	zip_error_t zip_error;
 	zip_error_init_with_code(&zip_error, error_code);
-	const char *error_string = zip_error_strerror(&zip_error);
-	NSString *errorString = @(error_string);
+	NSString *errorString = errorStringForZipError(&zip_error);
 	zip_error_fini(&zip_error);
 	
 	return errorString;
@@ -35,8 +41,7 @@ NSString * errorStringForZipErrorCode(int error_code) {
 
 NSString * errorStringForZipArchive(zip_t *za) {
 	zip_error_t *zip_error = zip_get_error(za);
-	const char *error_string = zip_error_strerror(zip_error);
-	NSString *errorString = @(error_string);
+	NSString *errorString = errorStringForZipError(zip_error);
 	
 	return errorString;
 }
