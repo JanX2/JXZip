@@ -15,6 +15,7 @@ enum {
 	JXZipFileExclusive =					2,		// Error if archive already exists.
 	JXZipFileStricterConsistencyChecks =	4,		// Perform additional stricter consistency checks on the archive, and error if they fail.
 	JXZipFileTruncate =						8,		// If archive exists, ignore its current contents. In other words, handle it the same way as an empty archive.
+	JXZipFileReadOnly =						16,		// .
 };
 typedef int JXZipFileOptions;
 
@@ -27,7 +28,9 @@ enum {
 	JXZipWantEncryptedData =				32, 	// Read encrypted data (implies JXZipReadCompressedData)
 	
 	JXZipWantUnmodifiedString =				64, 	// Get unmodified string
-	
+
+	JXZipInCentralDirectory =				512,	// In central directory
+
 	JXZipOverwrite =						8192	// When adding a file to a ZIP archive and a file with same path exists, replace it
 };
 typedef int JXZipOptions;
