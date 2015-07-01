@@ -47,11 +47,11 @@ NSString * errorStringForZipArchive(zip_t *za) {
 }
 
 @interface JXZippedFileInfo (Protected)
-+ (instancetype)zippedFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
-- (instancetype)initFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
++ (instancetype)zippedFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZippedFileOptions)options error:(NSError **)error;
+- (instancetype)initFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZippedFileOptions)options error:(NSError **)error;
 
-+ (instancetype)zippedFileInfoWithArchive:(zip_t *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
-- (instancetype)initFileInfoWithArchive:(zip_t *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
++ (instancetype)zippedFileInfoWithArchive:(zip_t *)archive index:(NSUInteger)index options:(JXZippedFileOptions)options error:(NSError **)error;
+- (instancetype)initFileInfoWithArchive:(zip_t *)archive index:(NSUInteger)index options:(JXZippedFileOptions)options error:(NSError **)error;
 @end
 
 @interface JXZip ()
@@ -67,7 +67,7 @@ NSString * errorStringForZipArchive(zip_t *za) {
 	return [[[JXZip alloc] initWithURL:fileURL options:0 error:error] autorelease];
 }
 
-+ (instancetype)zipWithURL:(NSURL *)fileURL options:(JXZipFileOptions)options error:(NSError **)error;
++ (instancetype)zipWithURL:(NSURL *)fileURL options:(JXZipOptions)options error:(NSError **)error;
 {
 	return [[[JXZip alloc] initWithURL:fileURL options:options error:error] autorelease];
 }
@@ -77,7 +77,7 @@ NSString * errorStringForZipArchive(zip_t *za) {
 	return [self initWithURL:fileURL options:0 error:error];
 }
 
-- (instancetype)initWithURL:(NSURL *)fileURL options:(JXZipFileOptions)options error:(NSError **)error;
+- (instancetype)initWithURL:(NSURL *)fileURL options:(JXZipOptions)options error:(NSError **)error;
 {
 	self = [super init];
 	
@@ -141,7 +141,7 @@ NSString * errorStringForZipArchive(zip_t *za) {
 	return [JXZippedFileInfo zippedFileInfoWithArchive:_za index:index options:0 error:error];
 }
 
-- (JXZippedFileInfo *)zippedFileInfoForIndex:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
+- (JXZippedFileInfo *)zippedFileInfoForIndex:(NSUInteger)index options:(JXZippedFileOptions)options error:(NSError **)error;
 {
 	return [JXZippedFileInfo zippedFileInfoWithArchive:_za index:index options:options error:error];
 }
@@ -151,7 +151,7 @@ NSString * errorStringForZipArchive(zip_t *za) {
 	return [JXZippedFileInfo zippedFileInfoWithArchive:_za filePath:filePath options:0 error:error];
 }
 
-- (JXZippedFileInfo *)zippedFileInfoForFilePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
+- (JXZippedFileInfo *)zippedFileInfoForFilePath:(NSString *)filePath options:(JXZippedFileOptions)options error:(NSError **)error;
 {
 	return [JXZippedFileInfo zippedFileInfoWithArchive:_za filePath:filePath options:options error:error];
 }
@@ -161,7 +161,7 @@ NSString * errorStringForZipArchive(zip_t *za) {
 	return [self dataForFileAtIndex:index options:0 error:error];
 }
 
-- (NSData *)dataForFileAtIndex:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
+- (NSData *)dataForFileAtIndex:(NSUInteger)index options:(JXZippedFileOptions)options error:(NSError **)error;
 {
 	JXZippedFileInfo *zippedFileInfo = [self zippedFileInfoForIndex:index error:error];
 	if (zippedFileInfo == nil)  return nil;
@@ -173,7 +173,7 @@ NSString * errorStringForZipArchive(zip_t *za) {
 	return [self dataForFilePath:filePath options:0 error:error];
 }
 
-- (NSData *)dataForFilePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
+- (NSData *)dataForFilePath:(NSString *)filePath options:(JXZippedFileOptions)options error:(NSError **)error;
 {
 	JXZippedFileInfo *zippedFileInfo = [self zippedFileInfoForFilePath:filePath error:error];
 	if (zippedFileInfo == nil)  return nil;
@@ -185,7 +185,7 @@ NSString * errorStringForZipArchive(zip_t *za) {
 	return [self dataForZippedFileInfo:zippedFileInfo options:0 error:error];
 }
 
-- (NSData *)dataForZippedFileInfo:(JXZippedFileInfo *)zippedFileInfo options:(JXZipOptions)options error:(NSError **)error;
+- (NSData *)dataForZippedFileInfo:(JXZippedFileInfo *)zippedFileInfo options:(JXZippedFileOptions)options error:(NSError **)error;
 {
 	if (zippedFileInfo == nil)  return nil;
 

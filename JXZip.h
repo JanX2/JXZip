@@ -11,29 +11,29 @@
 #import "JXZippedFileInfo.h"
 
 enum {
-	JXZipFileCreate =						1,		// Create the archive if it does not exist.
-	JXZipFileExclusive =					2,		// Error if archive already exists.
-	JXZipFileStricterConsistencyChecks =	4,		// Perform additional stricter consistency checks on the archive, and error if they fail.
-	JXZipFileTruncate =						8,		// If archive exists, ignore its current contents. In other words, handle it the same way as an empty archive.
-	JXZipFileReadOnly =						16,		// .
-};
-typedef int JXZipFileOptions;
-
-enum {
-	JXZipCaseInsensitivePathLookup =		1,		// Ignore case on path lookup
-	
-	JXZipReadCompressedData =				4,		// Read compressed data
-	JXZipUseOriginalDataIgnoringChanges = 	8,		// Use original data, ignoring changes
-	JXZipForceRecompressionOfData =			16, 	// Force recompression of data
-	JXZipWantEncryptedData =				32, 	// Read encrypted data (implies JXZipReadCompressedData)
-	
-	JXZipWantUnmodifiedString =				64, 	// Get unmodified string
-
-	JXZipInCentralDirectory =				512,	// In central directory
-
-	JXZipOverwrite =						8192	// When adding a file to a ZIP archive and a file with same path exists, replace it
+	JXZipCreate =						1,		// Create the archive if it does not exist.
+	JXZipExclusive =					2,		// Error if archive already exists.
+	JXZipStricterConsistencyChecks =	4,		// Perform additional stricter consistency checks on the archive, and error if they fail.
+	JXZipTruncate =						8,		// If archive exists, ignore its current contents. In other words, handle it the same way as an empty archive.
+	JXZipReadOnly =						16,		// .
 };
 typedef int JXZipOptions;
+
+enum {
+	JXZippedFileCaseInsensitivePathLookup =		1,		// Ignore case on path lookup
+	
+	JXZippedFileReadCompressedData =				4,		// Read compressed data
+	JXZippedFileUseOriginalDataIgnoringChanges = 	8,		// Use original data, ignoring changes
+	JXZippedFileForceRecompressionOfData =			16, 	// Force recompression of data
+	JXZippedFileWantEncryptedData =				32, 	// Read encrypted data (implies JXZippedFileReadCompressedData)
+	
+	JXZippedFileWantUnmodifiedString =				64, 	// Get unmodified string
+
+	JXZippedFileInCentralDirectory =				512,	// In central directory
+
+	JXZippedFileOverwrite =						8192	// When adding a file to a ZIP archive and a file with same path exists, replace it
+};
+typedef int JXZippedFileOptions;
 
 
 @class JXZippedFileInfo;
@@ -46,23 +46,23 @@ typedef int JXZipOptions;
 
 // From NSURL.
 + (instancetype)zipWithURL:(NSURL *)fileURL error:(NSError **)error;
-+ (instancetype)zipWithURL:(NSURL *)fileURL options:(JXZipFileOptions)options error:(NSError **)error;
++ (instancetype)zipWithURL:(NSURL *)fileURL options:(JXZipOptions)options error:(NSError **)error;
 
 - (instancetype)initWithURL:(NSURL *)fileURL error:(NSError **)error;
-- (instancetype)initWithURL:(NSURL *)fileURL options:(JXZipFileOptions)options error:(NSError **)error;
+- (instancetype)initWithURL:(NSURL *)fileURL options:(JXZipOptions)options error:(NSError **)error;
 
 
 // File access.
 - (JXZippedFileInfo *)zippedFileInfoForIndex:(NSUInteger)index error:(NSError **)error;
-- (JXZippedFileInfo *)zippedFileInfoForIndex:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
+- (JXZippedFileInfo *)zippedFileInfoForIndex:(NSUInteger)index options:(JXZippedFileOptions)options error:(NSError **)error;
 - (JXZippedFileInfo *)zippedFileInfoForFilePath:(NSString *)filePath error:(NSError **)error;
-- (JXZippedFileInfo *)zippedFileInfoForFilePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
+- (JXZippedFileInfo *)zippedFileInfoForFilePath:(NSString *)filePath options:(JXZippedFileOptions)options error:(NSError **)error;
 - (NSData *)dataForFileAtIndex:(NSUInteger)index error:(NSError **)error;
-- (NSData *)dataForFileAtIndex:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
+- (NSData *)dataForFileAtIndex:(NSUInteger)index options:(JXZippedFileOptions)options error:(NSError **)error;
 - (NSData *)dataForFilePath:(NSString *)filePath error:(NSError **)error;
-- (NSData *)dataForFilePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
+- (NSData *)dataForFilePath:(NSString *)filePath options:(JXZippedFileOptions)options error:(NSError **)error;
 - (NSData *)dataForZippedFileInfo:(JXZippedFileInfo *)zippedFileInfo error:(NSError **)error;
-- (NSData *)dataForZippedFileInfo:(JXZippedFileInfo *)zippedFileInfo options:(JXZipOptions)options error:(NSError **)error;
+- (NSData *)dataForZippedFileInfo:(JXZippedFileInfo *)zippedFileInfo options:(JXZippedFileOptions)options error:(NSError **)error;
 
 - (BOOL)addFileWithPath:(NSString *)filePath forData:(NSData *)data error:(NSError **)error;
 - (BOOL)replaceFile:(JXZippedFileInfo *)zippedFileInfo withData:(NSData *)xmlData error:(NSError **)error;

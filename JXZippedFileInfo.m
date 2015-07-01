@@ -24,7 +24,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 - (instancetype)initFileInfoWithArchive:(zip_t *)archive
 								  index:(NSUInteger)index
 							   filePath:(NSString *)filePath
-								options:(JXZipOptions)options
+								options:(JXZippedFileOptions)options
 								  error:(NSError **)error;
 {
 	self = [super init];
@@ -71,7 +71,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 	return self;
 }
 
-- (instancetype)initFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
+- (instancetype)initFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZippedFileOptions)options error:(NSError **)error;
 {
 	if (filePath == nil)  return nil;
 	else  return [self initFileInfoWithArchive:archive
@@ -81,7 +81,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 										 error:error];
 }
 
-+ (instancetype)zippedFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZipOptions)options error:(NSError **)error;
++ (instancetype)zippedFileInfoWithArchive:(zip_t *)archive filePath:(NSString *)filePath options:(JXZippedFileOptions)options error:(NSError **)error;
 {
 	return [[[JXZippedFileInfo alloc] initFileInfoWithArchive:archive
 														index:0
@@ -90,7 +90,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 														error:error] autorelease];
 }
 
-- (instancetype)initFileInfoWithArchive:(zip_t *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
+- (instancetype)initFileInfoWithArchive:(zip_t *)archive index:(NSUInteger)index options:(JXZippedFileOptions)options error:(NSError **)error;
 {
 	return [self initFileInfoWithArchive:archive
 								   index:index
@@ -99,7 +99,7 @@ NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedF
 								   error:error];
 }
 
-+ (instancetype)zippedFileInfoWithArchive:(zip_t *)archive index:(NSUInteger)index options:(JXZipOptions)options error:(NSError **)error;
++ (instancetype)zippedFileInfoWithArchive:(zip_t *)archive index:(NSUInteger)index options:(JXZippedFileOptions)options error:(NSError **)error;
 {
 	return [[[JXZippedFileInfo alloc] initFileInfoWithArchive:archive
 														index:index
