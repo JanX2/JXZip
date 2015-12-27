@@ -22,6 +22,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3D92847E1C3088E7001EABA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D7E35371B3305FB00022624;
+			remoteInfo = "in-memory-example";
+		};
 		3DD9BE611631C1C70094B812 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
@@ -306,6 +313,7 @@
 				3DFCAAE81B2E3A74003B038A /* hole */,
 				3DD9BE741631C1C70094B812 /* modify */,
 				3DD9BE841631C1C70094B812 /* tryopen */,
+				3D92847F1C3088E7001EABA7 /* in-memory-example */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -402,6 +410,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		3D92847F1C3088E7001EABA7 /* in-memory-example */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "in-memory-example";
+			remoteRef = 3D92847E1C3088E7001EABA7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		3DD9BE621631C1C70094B812 /* libzip_iOS.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
