@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "JXZippedFileInfo.h"
+#import <JXZip/JXZippedFileInfo.h>
 
 enum {
 	JXZipCreate =						1,		// Create the archive if it does not exist.
