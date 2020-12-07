@@ -19,6 +19,7 @@
 		3DE00EB815CEA7AE00B0C42F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE00EB715CEA7AE00B0C42F /* Foundation.framework */; };
 		3DFEF4EF257E5C610072B8FB /* libzip.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFEF4E4257E5C4C0072B8FB /* libzip.dylib */; };
 		3DFEF4FB257E5F0B0072B8FB /* libzip.dylib in Copy dylibs to Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFEF4E4257E5C4C0072B8FB /* libzip.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3DFEF95B2580E71A0072B8FB /* test.zip in Resources */ = {isa = PBXBuildFile; fileRef = 3DFEF95A2580E71A0072B8FB /* test.zip */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,10 +72,11 @@
 		3D1F1B0115B3FC5F00DEC23F /* JXZipTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXZipTest.h; sourceTree = "<group>"; };
 		3D1F1B0215B3FC5F00DEC23F /* JXZipTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXZipTest.m; sourceTree = "<group>"; };
 		3D1F1B0415B3FC5F00DEC23F /* JXZipTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JXZipTest-Prefix.pch"; sourceTree = "<group>"; };
-		3D1F1B6E15B4085F00DEC23F /* test.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = test.zip; path = libzip/regress/test.zip; sourceTree = SOURCE_ROOT; };
+		3D1F1B6E15B4085F00DEC23F /* test.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = test.zip; path = "External/libzip-xcode-custom/External/lipzip/regress/test.zip"; sourceTree = SOURCE_ROOT; };
 		3D62A5E5148E7E2D00D9B13A /* Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
 		3DE00EB715CEA7AE00B0C42F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3DFEF4D9257E5C4C0072B8FB /* libzip.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libzip.xcodeproj; path = "External/libzip-xcode-custom/libzip.xcodeproj"; sourceTree = "<group>"; };
+		3DFEF95A2580E71A0072B8FB /* test.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = test.zip; path = "External/libzip-xcode-custom/External/lipzip/regress/test.zip"; sourceTree = SOURCE_ROOT; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		D7DC145D2572C0AB00CF8E50 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 		3D1F1AFB15B3FC5F00DEC23F /* JXZipTest */ = {
 			isa = PBXGroup;
 			children = (
+				3DFEF95A2580E71A0072B8FB /* test.zip */,
 				3D1F1B0115B3FC5F00DEC23F /* JXZipTest.h */,
 				3D1F1B0215B3FC5F00DEC23F /* JXZipTest.m */,
 				3D1F1B7115B4087D00DEC23F /* Resources */,
@@ -353,26 +356,11 @@
 			files = (
 				3D1F1B0015B3FC5F00DEC23F /* InfoPlist.strings in Resources */,
 				3D1F1B6F15B4086000DEC23F /* test.zip in Resources */,
+				3DFEF95B2580E71A0072B8FB /* test.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		3D1F1AEF15B3FC5F00DEC23F /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3D1F1A2A15B32D3C00DEC23F /* Sources */ = {
@@ -547,6 +535,7 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "JXZipTest/JXZipTest-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.geheimwerk.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -563,6 +552,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JXZipTest/JXZipTest-Prefix.pch";
 				INFOPLIST_FILE = "JXZipTest/JXZipTest-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.geheimwerk.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
