@@ -10,7 +10,7 @@
 
 #import "JXZip.h"
 
-#import <libzip/zip.h>
+#import <zip.h>
 
 NSString * const	JXZippedFileInfoErrorDomain			= @"de.geheimwerk.Error.JXZippedFileInfo";
 

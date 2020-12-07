@@ -9,7 +9,7 @@
 #import "JXZip.h"
 
 #import "JXZippedFileInfo.h"
-#import <libzip/zip.h>
+#import <zip.h>
 
 #define ZIP_DISABLE_DEPRECATED	1
 

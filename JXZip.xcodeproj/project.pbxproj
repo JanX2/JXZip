@@ -16,108 +16,38 @@
 		3D1F1B0315B3FC5F00DEC23F /* JXZipTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F1B0215B3FC5F00DEC23F /* JXZipTest.m */; };
 		3D1F1B6F15B4086000DEC23F /* test.zip in Resources */ = {isa = PBXBuildFile; fileRef = 3D1F1B6E15B4085F00DEC23F /* test.zip */; };
 		3D1F1B8B15B40DB000DEC23F /* JXZip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1F1A8315B32D3C00DEC23F /* JXZip.framework */; };
-		3D985620163586BB00EEB44B /* libzip.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD9BE641631C1C70094B812 /* libzip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		3DD9BECC1631C7D80094B812 /* libzip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD9BE641631C1C70094B812 /* libzip.framework */; };
 		3DE00EB815CEA7AE00B0C42F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE00EB715CEA7AE00B0C42F /* Foundation.framework */; };
+		3DFEF4EF257E5C610072B8FB /* libzip.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFEF4E4257E5C4C0072B8FB /* libzip.dylib */; };
+		3DFEF4FB257E5F0B0072B8FB /* libzip.dylib in Copy dylibs to Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFEF4E4257E5C4C0072B8FB /* libzip.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3D92847E1C3088E7001EABA7 /* PBXContainerItemProxy */ = {
+		3DFEF4E3257E5C4C0072B8FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
+			containerPortal = 3DFEF4D9257E5C4C0072B8FB /* libzip.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 3D7E35371B3305FB00022624;
-			remoteInfo = "in-memory-example";
+			remoteGlobalIDString = 4F5B46E1D4FF42D8B73D992C;
+			remoteInfo = zip;
 		};
-		3DD9BE611631C1C70094B812 /* PBXContainerItemProxy */ = {
+		3DFEF4ED257E5C580072B8FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4BDC71E015B182B200236D3C;
-			remoteInfo = libzip;
-		};
-		3DD9BE631631C1C70094B812 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4B01D68B15B2F3F1002D5007;
-			remoteInfo = "libzip Mac";
-		};
-		3DD9BE651631C1C70094B812 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4B01D6FD15B2F4B1002D5007;
-			remoteInfo = zipmerge;
-		};
-		3DD9BE671631C1C70094B812 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4B01D71315B2F4EB002D5007;
-			remoteInfo = zipcmp;
-		};
-		3DD9BE6D1631C1C70094B812 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4BACD5C115BC2DC900920691;
-			remoteInfo = add_from_filep;
-		};
-		3DD9BE6F1631C1C70094B812 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4BACD5D015BC2DF200920691;
-			remoteInfo = fopen_unchanged;
-		};
-		3DD9BE711631C1C70094B812 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4BACD5DF15BC2F3700920691;
-			remoteInfo = fread;
-		};
-		3DD9BE731631C1C70094B812 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4BACD58915BC2CEA00920691;
-			remoteInfo = modify;
-		};
-		3DD9BE831631C1C70094B812 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4BACD65015BC301300920691;
-			remoteInfo = tryopen;
-		};
-		3DD9BECA1631C7D20094B812 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
+			containerPortal = 3DFEF4D9257E5C4C0072B8FB /* libzip.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 4B01D68A15B2F3F1002D5007;
-			remoteInfo = "libzip Mac";
-		};
-		3DFCAAE71B2E3A74003B038A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4BD6CB6C19E71CD100710654;
-			remoteInfo = hole;
+			remoteGlobalIDString = 04C66F285A9446649BB72044;
+			remoteInfo = zip;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3D98560A163586A800EEB44B /* Copy Frameworks */ = {
+		3D98560A163586A800EEB44B /* Copy dylibs to Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3D985620163586BB00EEB44B /* libzip.framework in Copy Frameworks */,
+				3DFEF4FB257E5F0B0072B8FB /* libzip.dylib in Copy dylibs to Frameworks */,
 			);
-			name = "Copy Frameworks";
+			name = "Copy dylibs to Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -143,8 +73,8 @@
 		3D1F1B0415B3FC5F00DEC23F /* JXZipTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JXZipTest-Prefix.pch"; sourceTree = "<group>"; };
 		3D1F1B6E15B4085F00DEC23F /* test.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = test.zip; path = libzip/regress/test.zip; sourceTree = SOURCE_ROOT; };
 		3D62A5E5148E7E2D00D9B13A /* Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
-		3DD9BE351631C1C60094B812 /* libzip.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libzip.xcodeproj; path = libzip/xcode/libzip.xcodeproj; sourceTree = "<group>"; };
 		3DE00EB715CEA7AE00B0C42F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3DFEF4D9257E5C4C0072B8FB /* libzip.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libzip.xcodeproj; path = "External/libzip-xcode-custom/libzip.xcodeproj"; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		D7DC145D2572C0AB00CF8E50 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -155,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DD9BECC1631C7D80094B812 /* libzip.framework in Frameworks */,
+				3DFEF4EF257E5C610072B8FB /* libzip.dylib in Frameworks */,
 				3DE00EB815CEA7AE00B0C42F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,7 +176,7 @@
 		3D1F1AF215B3FC5F00DEC23F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3DD9BE351631C1C60094B812 /* libzip.xcodeproj */,
+				3DFEF4D9257E5C4C0072B8FB /* libzip.xcodeproj */,
 				3DE00EB715CEA7AE00B0C42F /* Foundation.framework */,
 				3D1F1AF715B3FC5F00DEC23F /* Other Frameworks */,
 			);
@@ -300,20 +230,10 @@
 			path = Configs;
 			sourceTree = "<group>";
 		};
-		3DD9BE361631C1C60094B812 /* Products */ = {
+		3DFEF4DA257E5C4C0072B8FB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3DD9BE621631C1C70094B812 /* libzip_iOS.framework */,
-				3DD9BE641631C1C70094B812 /* libzip.framework */,
-				3DD9BE661631C1C70094B812 /* zipmerge */,
-				3DD9BE681631C1C70094B812 /* zipcmp */,
-				3DD9BE6E1631C1C70094B812 /* add_from_filep */,
-				3DD9BE701631C1C70094B812 /* fopen_unchanged */,
-				3DD9BE721631C1C70094B812 /* fread */,
-				3DFCAAE81B2E3A74003B038A /* hole */,
-				3DD9BE741631C1C70094B812 /* modify */,
-				3DD9BE841631C1C70094B812 /* tryopen */,
-				3D92847F1C3088E7001EABA7 /* in-memory-example */,
+				3DFEF4E4257E5C4C0072B8FB /* libzip.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -341,12 +261,12 @@
 				3D1F1A2815B32D3C00DEC23F /* Resources */,
 				3D1F1A2A15B32D3C00DEC23F /* Sources */,
 				3D1F1A7E15B32D3C00DEC23F /* Frameworks */,
-				3D98560A163586A800EEB44B /* Copy Frameworks */,
+				3D98560A163586A800EEB44B /* Copy dylibs to Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3DD9BECB1631C7D20094B812 /* PBXTargetDependency */,
+				3DFEF4EE257E5C580072B8FB /* PBXTargetDependency */,
 			);
 			name = JXZip.framework;
 			productInstallPath = "$(HOME)/Library/Frameworks";
@@ -361,7 +281,6 @@
 				3D1F1AEC15B3FC5F00DEC23F /* Sources */,
 				3D1F1AED15B3FC5F00DEC23F /* Frameworks */,
 				3D1F1AEE15B3FC5F00DEC23F /* Resources */,
-				3D1F1AEF15B3FC5F00DEC23F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -397,8 +316,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 3DD9BE361631C1C60094B812 /* Products */;
-					ProjectRef = 3DD9BE351631C1C60094B812 /* libzip.xcodeproj */;
+					ProductGroup = 3DFEF4DA257E5C4C0072B8FB /* Products */;
+					ProjectRef = 3DFEF4D9257E5C4C0072B8FB /* libzip.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -410,81 +329,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		3D92847F1C3088E7001EABA7 /* in-memory-example */ = {
+		3DFEF4E4257E5C4C0072B8FB /* libzip.dylib */ = {
 			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "in-memory-example";
-			remoteRef = 3D92847E1C3088E7001EABA7 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DD9BE621631C1C70094B812 /* libzip_iOS.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = libzip_iOS.framework;
-			remoteRef = 3DD9BE611631C1C70094B812 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DD9BE641631C1C70094B812 /* libzip.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = libzip.framework;
-			remoteRef = 3DD9BE631631C1C70094B812 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DD9BE661631C1C70094B812 /* zipmerge */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = zipmerge;
-			remoteRef = 3DD9BE651631C1C70094B812 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DD9BE681631C1C70094B812 /* zipcmp */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = zipcmp;
-			remoteRef = 3DD9BE671631C1C70094B812 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DD9BE6E1631C1C70094B812 /* add_from_filep */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = add_from_filep;
-			remoteRef = 3DD9BE6D1631C1C70094B812 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DD9BE701631C1C70094B812 /* fopen_unchanged */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = fopen_unchanged;
-			remoteRef = 3DD9BE6F1631C1C70094B812 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DD9BE721631C1C70094B812 /* fread */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = fread;
-			remoteRef = 3DD9BE711631C1C70094B812 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DD9BE741631C1C70094B812 /* modify */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = modify;
-			remoteRef = 3DD9BE731631C1C70094B812 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DD9BE841631C1C70094B812 /* tryopen */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = tryopen;
-			remoteRef = 3DD9BE831631C1C70094B812 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3DFCAAE81B2E3A74003B038A /* hole */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = hole;
-			remoteRef = 3DFCAAE71B2E3A74003B038A /* PBXContainerItemProxy */;
+			fileType = "compiled.mach-o.dylib";
+			path = libzip.dylib;
+			remoteRef = 3DFEF4E3257E5C4C0072B8FB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -546,10 +395,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3DD9BECB1631C7D20094B812 /* PBXTargetDependency */ = {
+		3DFEF4EE257E5C580072B8FB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "libzip Mac";
-			targetProxy = 3DD9BECA1631C7D20094B812 /* PBXContainerItemProxy */;
+			name = zip;
+			targetProxy = 3DFEF4ED257E5C580072B8FB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -646,6 +495,10 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/External/libzip-xcode-custom/External/lipzip/lib/",
+					"$(SRCROOT)/External/libzip-xcode-custom/",
+				);
 				INFOPLIST_FILE = "JXZip-Info.plist";
 				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks";
@@ -666,6 +519,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				GCC_MODEL_TUNING = G5;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/External/libzip-xcode-custom/External/lipzip/lib/",
+					"$(SRCROOT)/External/libzip-xcode-custom/",
+				);
 				INFOPLIST_FILE = "JXZip-Info.plist";
 				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks";
