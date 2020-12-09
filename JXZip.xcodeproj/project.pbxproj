@@ -172,7 +172,6 @@
 				3D1F1A8815B32DB900DEC23F /* JXZippedFileInfo.m */,
 			);
 			name = JXZip;
-			path = libzip/src;
 			sourceTree = "<group>";
 		};
 		3D1F1AF215B3FC5F00DEC23F /* Frameworks */ = {
