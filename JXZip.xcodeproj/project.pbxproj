@@ -19,7 +19,6 @@
 		3DE00EB815CEA7AE00B0C42F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE00EB715CEA7AE00B0C42F /* Foundation.framework */; };
 		3DFEF4EF257E5C610072B8FB /* libzip.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFEF4E4257E5C4C0072B8FB /* libzip.dylib */; };
 		3DFEF4FB257E5F0B0072B8FB /* libzip.dylib in Copy dylibs to Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFEF4E4257E5C4C0072B8FB /* libzip.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		3DFEF95B2580E71A0072B8FB /* test.zip in Resources */ = {isa = PBXBuildFile; fileRef = 3DFEF95A2580E71A0072B8FB /* test.zip */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -355,7 +354,6 @@
 			files = (
 				3D1F1B0015B3FC5F00DEC23F /* InfoPlist.strings in Resources */,
 				3D1F1B6F15B4086000DEC23F /* test.zip in Resources */,
-				3DFEF95B2580E71A0072B8FB /* test.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
